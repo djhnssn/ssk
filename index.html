@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vårt sätt att spela - Skuttunge SK P2016</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 25px 0;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            color: #FFD700;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .logo-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .logo-bar span {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .mode-btn {
+            padding: 14px 35px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mode-btn.attack {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a1a;
+        }
+
+        .mode-btn.defense {
+            background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+            color: #FFD700;
+            border: 2px solid #FFD700;
+        }
+
+        .mode-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .mode-btn.active {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .main-content {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .pitch-container {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            flex-shrink: 0;
+        }
+
+        .pitch {
+            position: relative;
+            width: 100%;
+            padding-bottom: 140%;
+            background: linear-gradient(180deg, 
+                #2d5a27 0%, #3a7233 5%, 
+                #2d5a27 5%, #3a7233 10%,
+                #2d5a27 10%, #3a7233 15%,
+                #2d5a27 15%, #3a7233 20%,
+                #2d5a27 20%, #3a7233 25%,
+                #2d5a27 25%, #3a7233 30%,
+                #2d5a27 30%, #3a7233 35%,
+                #2d5a27 35%, #3a7233 40%,
+                #2d5a27 40%, #3a7233 45%,
+                #2d5a27 45%, #3a7233 50%,
+                #2d5a27 50%, #3a7233 55%,
+                #2d5a27 55%, #3a7233 60%,
+                #2d5a27 60%, #3a7233 65%,
+                #2d5a27 65%, #3a7233 70%,
+                #2d5a27 70%, #3a7233 75%,
+                #2d5a27 75%, #3a7233 80%,
+                #2d5a27 80%, #3a7233 85%,
+                #2d5a27 85%, #3a7233 90%,
+                #2d5a27 90%, #3a7233 95%,
+                #2d5a27 95%, #3a7233 100%
+            );
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 3px solid #FFD700;
+        }
+
+        .pitch-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .pitch-lines svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .player {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: #1a1a1a;
+            z-index: 10;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            border: 3px solid #1a1a1a;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .player:hover {
+            transform: translate(-50%, -50%) scale(1.15);
+            z-index: 20;
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .player.selected {
+            transform: translate(-50%, -50%) scale(1.2);
+            z-index: 30;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+            border-color: #fff;
+        }
+
+        .player.goalkeeper {
+            background: linear-gradient(135deg, #00CED1 0%, #008B8B 100%);
+            color: #fff;
+            border-color: #fff;
+        }
+
+        /* Classic football/soccer ball */
+        .ball {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            z-index: 15;
+            transform: translate(-50%, -50%);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .ball svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+        }
+
+        .ball-zone {
+            position: absolute;
+            border: 2px dashed rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.18);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ball-zone:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 215, 0, 0.35);
+            color: rgba(255, 215, 0, 0.5);
+        }
+
+        .ball-zone.active {
+            background: rgba(255, 215, 0, 0.08);
+            border-color: rgba(255, 215, 0, 0.4);
+            color: rgba(255, 215, 0, 0.7);
+        }
+
+        .side-panel {
+            width: 360px;
+            flex-shrink: 0;
+        }
+
+        .info-panel {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            border: 2px solid #333;
+            margin-bottom: 18px;
+            min-height: 170px;
+        }
+
+        .info-panel h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #FFD700;
+        }
+
+        .info-panel .role {
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: 18px;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .info-panel .role.goalkeeper {
+            background: linear-gradient(135deg, #00CED1 0%, #008B8B 100%);
+            color: #fff;
+        }
+
+        .info-panel .description {
+            line-height: 1.65;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .info-panel.empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #777;
+        }
+
+        .info-panel.empty p {
+            font-size: 0.9rem;
+        }
+
+        .context-info {
+            margin-top: 12px;
+            padding: 10px 12px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid #FFD700;
+            font-size: 0.85rem;
+        }
+
+        .context-info strong {
+            color: #FFD700;
+        }
+
+        .mode-indicator {
+            text-align: center;
+            margin: 12px 0 20px;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .mode-indicator.attack {
+            color: #FFD700;
+        }
+
+        .mode-indicator.defense {
+            color: #ccc;
+        }
+
+        .philosophy {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 12px auto 20px;
+            max-width: 850px;
+            border: 1px solid #333;
+        }
+
+        .philosophy h3 {
+            color: #FFD700;
+            margin-bottom: 8px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .philosophy p {
+            color: #aaa;
+            line-height: 1.6;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .legend {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border-radius: 12px;
+            padding: 18px;
+            border: 2px solid #333;
+        }
+
+        .legend h4 {
+            color: #FFD700;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        .legend-color {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.65rem;
+        }
+
+        .legend-color.field {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #1a1a1a;
+            border: 2px solid #1a1a1a;
+        }
+
+        .legend-color.gk {
+            background: linear-gradient(135deg, #00CED1, #008B8B);
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .legend-ball {
+            width: 26px;
+            height: 26px;
+            flex-shrink: 0;
+        }
+
+        .legend-ball svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .zone-hint {
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid #333;
+            font-size: 0.75rem;
+            color: #777;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .side-panel {
+                width: 100%;
+                max-width: 420px;
+            }
+
+            .pitch-container {
+                max-width: 360px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .player {
+                width: 32px;
+                height: 32px;
+                font-size: 0.65rem;
+            }
+
+            .mode-btn {
+                padding: 10px 22px;
+                font-size: 0.85rem;
+            }
+
+            .ball {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Vårt sätt att spela</h1>
+            <p>Skuttunge SK P2016</p>
+            <div class="logo-bar">
+                <span style="background: #FFD700;"></span>
+                <span style="background: #1a1a1a; border: 2px solid #FFD700;"></span>
+                <span style="background: #FFD700;"></span>
+            </div>
+        </header>
+
+        <div class="philosophy">
+            <h3>Spelidé</h3>
+            <p>Speluppbyggnad går alltid via kanterna. I försvar pressar FW aktivt och laget skiftar mot bollsidan. Vi skapar en medveten obalans där spelarna lär sig läsa spelet, fylla luckor och kommunicera.</p>
+        </div>
+
+        <div class="controls">
+            <button class="mode-btn attack active" onclick="setMode('attack')">⚔️ Anfall</button>
+            <button class="mode-btn defense" onclick="setMode('defense')">🛡️ Försvar</button>
+        </div>
+
+        <div class="mode-indicator attack" id="modeText">Anfallsformation - Speluppbyggnad</div>
+
+        <div class="main-content">
+            <div class="pitch-container">
+                <div class="pitch" id="pitch">
+                    <div class="pitch-lines">
+                        <svg viewBox="0 0 100 140" preserveAspectRatio="none">
+                            <rect x="2" y="2" width="96" height="136" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.5"/>
+                            <line x1="2" y1="70" x2="98" y2="70" stroke="rgba(255,255,255,0.6)" stroke-width="0.3"/>
+                            <circle cx="50" cy="70" r="12" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.3"/>
+                            <circle cx="50" cy="70" r="0.8" fill="rgba(255,255,255,0.6)"/>
+                            <rect x="25" y="2" width="50" height="18" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.3"/>
+                            <rect x="35" y="2" width="30" height="7" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.3"/>
+                            <circle cx="50" cy="14" r="0.6" fill="rgba(255,255,255,0.6)"/>
+                            <rect x="40" y="0" width="20" height="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.8)" stroke-width="0.3"/>
+                            <rect x="25" y="120" width="50" height="18" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.3"/>
+                            <rect x="35" y="131" width="30" height="7" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.3"/>
+                            <circle cx="50" cy="126" r="0.6" fill="rgba(255,255,255,0.6)"/>
+                            <rect x="40" y="138" width="20" height="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.8)" stroke-width="0.3"/>
+                        </svg>
+                    </div>
+
+                    <!-- Ball zones -->
+                    <div class="ball-zone" id="zone-left" style="left: 3%; top: 30%; width: 25%; height: 25%;" onclick="moveBallToZone('left')">
+                        <span>Vänster</span>
+                    </div>
+                    <div class="ball-zone" id="zone-center" style="left: 37.5%; top: 30%; width: 25%; height: 25%;" onclick="moveBallToZone('center')">
+                        <span>Mitten</span>
+                    </div>
+                    <div class="ball-zone" id="zone-right" style="left: 72%; top: 30%; width: 25%; height: 25%;" onclick="moveBallToZone('right')">
+                        <span>Höger</span>
+                    </div>
+
+                    <!-- Players -->
+                    <div class="player goalkeeper" id="player-MV" onclick="showPlayerInfo('MV')">MV</div>
+                    <div class="player" id="player-MB" onclick="showPlayerInfo('MB')">MB</div>
+                    <div class="player" id="player-CM" onclick="showPlayerInfo('CM')">CM</div>
+                    <div class="player" id="player-VY" onclick="showPlayerInfo('VY')">VY</div>
+                    <div class="player" id="player-OM" onclick="showPlayerInfo('OM')">OM</div>
+                    <div class="player" id="player-HY" onclick="showPlayerInfo('HY')">HY</div>
+                    <div class="player" id="player-FW" onclick="showPlayerInfo('FW')">FW</div>
+
+                    <!-- Ball - classic football SVG -->
+                    <div class="ball" id="ball">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="ballGradient" cx="30%" cy="30%">
+                                    <stop offset="0%" style="stop-color:#ffffff"/>
+                                    <stop offset="100%" style="stop-color:#e8e8e8"/>
+                                </radialGradient>
+                            </defs>
+                            <circle cx="50" cy="50" r="48" fill="url(#ballGradient)" stroke="#222" stroke-width="3"/>
+                            <!-- Center pentagon -->
+                            <path d="M50 25 L65 40 L60 58 L40 58 L35 40 Z" fill="#1a1a1a"/>
+                            <!-- Top left -->
+                            <path d="M25 18 L38 28 L32 38 L18 32 Z" fill="#1a1a1a"/>
+                            <!-- Top right -->
+                            <path d="M75 18 L82 32 L68 38 L62 28 Z" fill="#1a1a1a"/>
+                            <!-- Bottom left -->
+                            <path d="M22 62 L38 62 L42 78 L28 82 Z" fill="#1a1a1a"/>
+                            <!-- Bottom right -->
+                            <path d="M78 62 L72 82 L58 78 L62 62 Z" fill="#1a1a1a"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-panel">
+                <div class="info-panel empty" id="infoPanel">
+                    <p>👆 Klicka på en spelare för att se roll och uppgifter</p>
+                </div>
+
+                <div class="legend">
+                    <h4>Positioner</h4>
+                    <div class="legend-item">
+                        <div class="legend-color gk">MV</div>
+                        <span>Målvakt</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color field">MB</div>
+                        <span>Mittback</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color field">CM</div>
+                        <span>Central mittfältare</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color field">VY</div>
+                        <span>Vänster ytter</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color field">OM</div>
+                        <span>Offensiv mittfältare</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color field">HY</div>
+                        <span>Höger ytter</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color field">FW</div>
+                        <span>Forward</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-ball">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <radialGradient id="legendBallGradient" cx="30%" cy="30%">
+                                        <stop offset="0%" style="stop-color:#ffffff"/>
+                                        <stop offset="100%" style="stop-color:#e8e8e8"/>
+                                    </radialGradient>
+                                </defs>
+                                <circle cx="50" cy="50" r="46" fill="url(#legendBallGradient)" stroke="#222" stroke-width="4"/>
+                                <path d="M50 28 L62 40 L58 55 L42 55 L38 40 Z" fill="#1a1a1a"/>
+                                <path d="M28 22 L38 30 L34 38 L22 34 Z" fill="#1a1a1a"/>
+                                <path d="M72 22 L78 34 L66 38 L62 30 Z" fill="#1a1a1a"/>
+                            </svg>
+                        </div>
+                        <span>Bollen</span>
+                    </div>
+                    <div class="zone-hint">
+                        Klicka på zonerna för att flytta bollen och se hur spelarna anpassar sig!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentMode = 'attack';
+        let currentZone = 'center';
+        let selectedPlayer = null;
+
+        const playerData = {
+            MV: {
+                name: 'Målvakt',
+                roleText: 'Målvakt',
+                isGoalkeeper: true,
+                attack: {
+                    description: 'Startar uppspelet och spelar ut bollen via kanterna. Går ut långt mot bollsidan för att vara ett alternativ och göra sig spelbar.'
+                },
+                defense: {
+                    description: 'Sista försvarslinjen. Kommer upp något för att stödja försvaret. Kommunicerar och styr positioneringen.'
+                }
+            },
+            MB: {
+                name: 'Mittback',
+                roleText: 'Mittback',
+                attack: {
+                    description: 'Fördelar bollen och styr uppspelet via kanterna. Följer upp för att inte skapa för stora luckor.'
+                },
+                defense: {
+                    description: 'Skiftar mot bollsidan för att täcka och säkra. Går mer mot kanten när bollen är där.'
+                }
+            },
+            CM: {
+                name: 'Central mittfältare',
+                roleText: 'Central mittfältare',
+                attack: {
+                    description: 'Länkar samman försvar och anfall. I utgångsläget tar CM emot bollen och spelar ut till kanterna.'
+                },
+                defense: {
+                    description: 'Skiftar mot bollsidan tillsammans med MB. Täcker mitten och förhindrar motståndarens speluppbyggnad.'
+                }
+            },
+            VY: {
+                name: 'Vänster ytter',
+                roleText: 'Vänster yttermittfältare',
+                attack: {
+                    description: 'Tar emot bollen på vänsterkanten - speluppbyggnad går alltid via kanterna! När bollen är på andra sidan håller VY sin kant för att bredda spelet.'
+                },
+                defense: {
+                    description: 'När bollen är på högersidan: faller in som extra back. När bollen är på vänstersidan: går upp och pressar!'
+                }
+            },
+            OM: {
+                name: 'Offensiv mittfältare',
+                roleText: 'Offensiv mittfältare',
+                attack: {
+                    description: 'Möter upp bollen och gör sig tillgänglig. I mitten står OM på motsatt sida från FW så båda är spelbara.'
+                },
+                defense: {
+                    description: 'Hjälper till i pressen och stänger passningsvägar. Jobbar för att återerövra bollen.'
+                }
+            },
+            HY: {
+                name: 'Höger ytter',
+                roleText: 'Höger yttermittfältare',
+                attack: {
+                    description: 'Tar emot bollen på högerkanten - speluppbyggnad går alltid via kanterna! När bollen är på andra sidan håller HY sin kant för att bredda spelet.'
+                },
+                defense: {
+                    description: 'När bollen är på vänstersidan: faller in som extra back. När bollen är på högersidan: går upp och pressar!'
+                }
+            },
+            FW: {
+                name: 'Forward',
+                roleText: 'Forward',
+                attack: {
+                    description: 'Rör sig mot bollsidan och gör sig tillgänglig. I mitten står FW på motsatt sida från OM (men högre upp) så båda är spelbara.'
+                },
+                defense: {
+                    description: 'Pressar aktivt när bollen går till kant! I mitten står FW mellan bollen och eget mål, redo att pressa när passning går ut.'
+                }
+            }
+        };
+
+        // ATTACK: MV goes out EVEN MORE on wing
+        const zonePositions = {
+            attack: {
+                left: {
+                    // Ball at VY - MV goes out far to left
+                    MV: { x: 30, y: 88 },   // Goes out FAR to left
+                    MB: { x: 40, y: 72 },
+                    CM: { x: 38, y: 58 },
+                    VY: { x: 15, y: 58 },   // Has ball
+                    OM: { x: 38, y: 45 },
+                    HY: { x: 88, y: 52 },   // Stays wide right
+                    FW: { x: 35, y: 28 }    // More towards left
+                },
+                center: {
+                    // Ball at CM - FW and OM on opposite sides
+                    MV: { x: 52, y: 88 },
+                    MB: { x: 50, y: 74 },
+                    CM: { x: 50, y: 60 },   // Has the ball
+                    VY: { x: 15, y: 52 },   // Wide left
+                    OM: { x: 35, y: 42 },   // LEFT side
+                    HY: { x: 85, y: 52 },   // Wide right
+                    FW: { x: 65, y: 30 }    // RIGHT side, higher up
+                },
+                right: {
+                    // Ball at HY - MV goes out far to right
+                    MV: { x: 70, y: 88 },   // Goes out FAR to right
+                    MB: { x: 60, y: 72 },
+                    CM: { x: 62, y: 58 },
+                    VY: { x: 12, y: 52 },   // Stays wide left
+                    OM: { x: 62, y: 45 },
+                    HY: { x: 85, y: 58 },   // Has ball
+                    FW: { x: 68, y: 28 }    // More towards right
+                }
+            },
+            defense: {
+                left: {
+                    // Ball on left - MB goes more to left wing
+                    MV: { x: 45, y: 88 },
+                    MB: { x: 32, y: 68 },   // More to left wing
+                    CM: { x: 35, y: 52 },
+                    VY: { x: 22, y: 38 },   // Pressing
+                    OM: { x: 45, y: 45 },
+                    HY: { x: 52, y: 62 },   // Falls in as extra back
+                    FW: { x: 30, y: 28 }    // Pressing close to ball
+                },
+                center: {
+                    // Ball in center
+                    MV: { x: 50, y: 88 },
+                    MB: { x: 50, y: 68 },
+                    CM: { x: 48, y: 52 },
+                    VY: { x: 28, y: 48 },
+                    OM: { x: 52, y: 42 },
+                    HY: { x: 72, y: 48 },
+                    FW: { x: 50, y: 35 }    // Between ball and own goal
+                },
+                right: {
+                    // Ball on right - MB goes more to right wing
+                    MV: { x: 55, y: 88 },
+                    MB: { x: 68, y: 68 },   // More to right wing
+                    CM: { x: 65, y: 52 },
+                    VY: { x: 48, y: 62 },   // Falls in as extra back
+                    OM: { x: 55, y: 45 },
+                    HY: { x: 78, y: 38 },   // Pressing
+                    FW: { x: 70, y: 28 }    // Pressing close to ball
+                }
+            }
+        };
+
+        // Ball positions - offset from player so ball is visible in front
+        const ballPositions = {
+            attack: {
+                left: { x: 10, y: 52 },     // In front of VY
+                center: { x: 44, y: 55 },   // In front of CM
+                right: { x: 90, y: 52 }     // In front of HY
+            },
+            defense: {
+                left: { x: 20, y: 25 },
+                center: { x: 50, y: 25 },
+                right: { x: 80, y: 25 }
+            }
+        };
+
+        function setMode(mode) {
+            currentMode = mode;
+            
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.mode-btn.${mode}`).classList.add('active');
+            
+            const modeText = document.getElementById('modeText');
+            if (mode === 'attack') {
+                modeText.textContent = 'Anfallsformation - Speluppbyggnad';
+            } else {
+                modeText.textContent = 'Försvarsformation';
+            }
+            modeText.className = `mode-indicator ${mode}`;
+            
+            updatePositions();
+            
+            if (selectedPlayer) {
+                showPlayerInfo(selectedPlayer);
+            }
+        }
+
+        function moveBallToZone(zone) {
+            currentZone = zone;
+            
+            document.querySelectorAll('.ball-zone').forEach(z => z.classList.remove('active'));
+            document.getElementById(`zone-${zone}`).classList.add('active');
+            
+            updatePositions();
+            
+            if (selectedPlayer) {
+                showPlayerInfo(selectedPlayer);
+            }
+        }
+
+        function updatePositions() {
+            const positions = zonePositions[currentMode][currentZone];
+            
+            Object.keys(playerData).forEach(playerId => {
+                const player = document.getElementById(`player-${playerId}`);
+                const pos = positions[playerId];
+                
+                player.style.left = `${pos.x}%`;
+                player.style.top = `${pos.y}%`;
+            });
+            
+            // Update ball position
+            const ball = document.getElementById('ball');
+            const ballPos = ballPositions[currentMode][currentZone];
+            ball.style.left = `${ballPos.x}%`;
+            ball.style.top = `${ballPos.y}%`;
+        }
+
+        function showPlayerInfo(playerId) {
+            selectedPlayer = playerId;
+            const data = playerData[playerId];
+            const modeData = data[currentMode];
+            
+            document.querySelectorAll('.player').forEach(p => p.classList.remove('selected'));
+            document.getElementById(`player-${playerId}`).classList.add('selected');
+            
+            const panel = document.getElementById('infoPanel');
+            panel.classList.remove('empty');
+            
+            let contextHtml = '';
+            
+            if (currentMode === 'attack') {
+                if (playerId === 'VY' && currentZone === 'left') {
+                    contextHtml = '<div class="context-info"><strong>⚽ Just nu:</strong> VY har bollen - speluppbyggnad via vänsterkanten!</div>';
+                } else if (playerId === 'HY' && currentZone === 'right') {
+                    contextHtml = '<div class="context-info"><strong>⚽ Just nu:</strong> HY har bollen - speluppbyggnad via högerkanten!</div>';
+                } else if (playerId === 'CM' && currentZone === 'center') {
+                    contextHtml = '<div class="context-info"><strong>⚽ Just nu:</strong> CM har bollen - redo att spela ut till kanterna!</div>';
+                }
+                else if (playerId === 'MV') {
+                    if (currentZone === 'left') {
+                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> MV går ut långt mot vänster för att vara spelbar!</div>';
+                    } else if (currentZone === 'right') {
+                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> MV går ut långt mot höger för att vara spelbar!</div>';
+                    }
+                }
+                else if (playerId === 'FW') {
+                    if (currentZone === 'center') {
+                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> FW står på motsatt sida från OM (högre upp) - båda är spelbara!</div>';
+                    } else {
+                        const side = currentZone === 'left' ? 'vänster' : 'höger';
+                        contextHtml = `<div class="context-info"><strong>🔄 Just nu:</strong> FW rör sig mot ${side} (bollsidan) - gör sig tillgänglig!</div>`;
+                    }
+                }
+                else if (playerId === 'OM') {
+                    if (currentZone === 'center') {
+                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> OM står på motsatt sida från FW - båda är spelbara!</div>';
+                    } else {
+                        contextHtml = '<div class="context-info"><strong>🔄 Just nu:</strong> OM möter upp bollen mot bollsidan!</div>';
+                    }
+                }
+                else if (playerId === 'HY' && currentZone === 'left') {
+                    contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> HY håller sin kant för att bredda spelet!</div>';
+                } else if (playerId === 'VY' && currentZone === 'right') {
+                    contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> VY håller sin kant för att bredda spelet!</div>';
+                }
+                else if (playerId === 'MB' && currentZone !== 'center') {
+                    const side = currentZone === 'left' ? 'vänster' : 'höger';
+                    contextHtml = `<div class="context-info"><strong>↔️ Just nu:</strong> MB följer med mot ${side} i uppspelet!</div>`;
+                }
+                else if (playerId === 'CM' && currentZone !== 'center') {
+                    contextHtml = '<div class="context-info"><strong>🔄 Just nu:</strong> CM stödjer uppspelet och är spelbar!</div>';
+                }
+            } else {
+                if (playerId === 'VY') {
+                    if (currentZone === 'left') {
+                        contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> VY pressar - bollen är på vänstersidan!</div>';
+                    } else if (currentZone === 'right') {
+                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> VY faller in som extra back!</div>';
+                    } else {
+                        contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> VY är redo att pressa eller falla in beroende på var bollen går!</div>';
+                    }
+                } else if (playerId === 'HY') {
+                    if (currentZone === 'right') {
+                        contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> HY pressar - bollen är på högersidan!</div>';
+                    } else if (currentZone === 'left') {
+                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> HY faller in som extra back!</div>';
+                    } else {
+                        contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> HY är redo att pressa eller falla in beroende på var bollen går!</div>';
+                    }
+                } else if (playerId === 'FW') {
+                    if (currentZone === 'center') {
+                        contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> FW väntar mellan bollen och eget mål - redo att pressa när passning går till kant!</div>';
+                    } else {
+                        contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> FW pressar aktivt nära bollen!</div>';
+                    }
+                } else if (playerId === 'MB') {
+                    if (currentZone === 'left') {
+                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> MB går mer mot vänsterkanten för att täcka!</div>';
+                    } else if (currentZone === 'right') {
+                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> MB går mer mot högerkanten för att täcka!</div>';
+                    } else {
+                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> MB håller centralt och är redo att skifta!</div>';
+                    }
+                } else if (playerId === 'CM') {
+                    if (currentZone === 'left') {
+                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> CM skiftar mot vänster - följer bollen!</div>';
+                    } else if (currentZone === 'right') {
+                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> CM skiftar mot höger - följer bollen!</div>';
+                    } else {
+                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> CM täcker mitten och är redo att skifta!</div>';
+                    }
+                } else if (playerId === 'OM') {
+                    contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> OM hjälper till i pressen och stänger passningsvägar!</div>';
+                } else if (playerId === 'MV') {
+                    contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> MV kommunicerar och styr försvarets positionering!</div>';
+                }
+            }
+            
+            const roleClass = data.isGoalkeeper ? 'role goalkeeper' : 'role';
+            
+            panel.innerHTML = `
+                <h3>${data.name}</h3>
+                <span class="${roleClass}">${data.roleText}</span>
+                <p class="description">${modeData.description}</p>
+                ${contextHtml}
+            `;
+        }
+
+        function hidePlayerInfo() {
+            selectedPlayer = null;
+            document.querySelectorAll('.player').forEach(p => p.classList.remove('selected'));
+            const panel = document.getElementById('infoPanel');
+            panel.classList.add('empty');
+            panel.innerHTML = '<p>👆 Klicka på en spelare för att se roll och uppgifter</p>';
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            setMode('attack');
+            moveBallToZone('center');
+        });
+
+        // Deselect when clicking on pitch background
+        document.getElementById('pitch').addEventListener('click', (e) => {
+            if (e.target.classList.contains('pitch') || e.target.closest('.pitch-lines')) {
+                hidePlayerInfo();
+            }
+        });
+    </script>
+</body>
+</html>
