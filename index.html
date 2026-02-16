@@ -468,7 +468,7 @@
 
         <div class="philosophy">
             <h3>Spelidé</h3>
-            <p>Speluppbyggnad går alltid via kanterna. I försvar pressar FW aktivt och laget skiftar mot bollsidan. Vi skapar en medveten obalans där spelarna lär sig läsa spelet, fylla luckor och kommunicera.</p>
+            <p>Speluppbyggnad går oftast via kanterna – alla ska göra sig spelbara och yttrarna håller bredd. I försvar startar vi kompakt. FW väntar med press tills passningen gått till kanten, då pressar FW från sidan för att täcka tillbakaspel medan yttern pressar framifrån.</p>
         </div>
 
         <div class="controls">
@@ -578,23 +578,6 @@
                         <div class="legend-color field">FW</div>
                         <span>Forward</span>
                     </div>
-                    <div class="legend-item">
-                        <div class="legend-ball">
-                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <radialGradient id="legendBallGradient" cx="30%" cy="30%">
-                                        <stop offset="0%" style="stop-color:#ffffff"/>
-                                        <stop offset="100%" style="stop-color:#e8e8e8"/>
-                                    </radialGradient>
-                                </defs>
-                                <circle cx="50" cy="50" r="46" fill="url(#legendBallGradient)" stroke="#222" stroke-width="4"/>
-                                <path d="M50 28 L62 40 L58 55 L42 55 L38 40 Z" fill="#1a1a1a"/>
-                                <path d="M28 22 L38 30 L34 38 L22 34 Z" fill="#1a1a1a"/>
-                                <path d="M72 22 L78 34 L66 38 L62 30 Z" fill="#1a1a1a"/>
-                            </svg>
-                        </div>
-                        <span>Bollen</span>
-                    </div>
                     <div class="zone-hint">
                         Klicka på zonerna för att flytta bollen och se hur spelarna anpassar sig!
                     </div>
@@ -617,7 +600,7 @@
                     description: 'Startar uppspelet och spelar ut bollen via kanterna. Går ut långt mot bollsidan för att vara ett alternativ och göra sig spelbar.'
                 },
                 defense: {
-                    description: 'Sista försvarslinjen. Kommer upp något för att stödja försvaret. Kommunicerar och styr positioneringen.'
+                    description: 'Sista försvarslinjen. Vågar ligga högt upp för att fånga upp långbollar. Kommunicerar och styr positioneringen.'
                 }
             },
             MB: {
@@ -627,34 +610,34 @@
                     description: 'Fördelar bollen och styr uppspelet via kanterna. Följer upp för att inte skapa för stora luckor.'
                 },
                 defense: {
-                    description: 'Skiftar mot bollsidan för att täcka och säkra. Går mer mot kanten när bollen är där.'
+                    description: 'Går upp och jobbar ihop med CM som ett centralt par. Skiftar mot bollsidan tillsammans.'
                 }
             },
             CM: {
                 name: 'Central mittfältare',
                 roleText: 'Central mittfältare',
                 attack: {
-                    description: 'Länkar samman försvar och anfall. I utgångsläget tar CM emot bollen och spelar ut till kanterna.'
+                    description: 'Tar emot bollen och kan bredda spelet ut till kanterna men också hitta bollar i djupet.'
                 },
                 defense: {
-                    description: 'Skiftar mot bollsidan tillsammans med MB. Täcker mitten och förhindrar motståndarens speluppbyggnad.'
+                    description: 'Kommer ner och jobbar ihop med MB som ett centralt par. Skiftar mot bollsidan tillsammans.'
                 }
             },
             VY: {
                 name: 'Vänster ytter',
                 roleText: 'Vänster yttermittfältare',
                 attack: {
-                    description: 'Tar emot bollen på vänsterkanten - speluppbyggnad går alltid via kanterna! När bollen är på andra sidan håller VY sin kant för att bredda spelet.'
+                    description: 'Tar emot bollen på vänsterkanten - speluppbyggnad går oftast via kanterna! När bollen är på andra sidan håller VY sin kant för att bredda spelet.'
                 },
                 defense: {
-                    description: 'När bollen är på högersidan: faller in som extra back. När bollen är på vänstersidan: går upp och pressar!'
+                    description: 'När bollen är på vänstersidan: pressar framifrån! När bollen är på högersidan: kommer in i banan och hjälper till centralt.'
                 }
             },
             OM: {
                 name: 'Offensiv mittfältare',
                 roleText: 'Offensiv mittfältare',
                 attack: {
-                    description: 'Möter upp bollen och gör sig tillgänglig. I mitten står OM på motsatt sida från FW så båda är spelbara.'
+                    description: 'Möter upp bollen och gör sig spelbar. I mitten står OM på motsatt sida från FW så båda är spelbara.'
                 },
                 defense: {
                     description: 'Hjälper till i pressen och stänger passningsvägar. Jobbar för att återerövra bollen.'
@@ -664,20 +647,20 @@
                 name: 'Höger ytter',
                 roleText: 'Höger yttermittfältare',
                 attack: {
-                    description: 'Tar emot bollen på högerkanten - speluppbyggnad går alltid via kanterna! När bollen är på andra sidan håller HY sin kant för att bredda spelet.'
+                    description: 'Tar emot bollen på högerkanten - speluppbyggnad går oftast via kanterna! När bollen är på andra sidan håller HY sin kant för att bredda spelet.'
                 },
                 defense: {
-                    description: 'När bollen är på vänstersidan: faller in som extra back. När bollen är på högersidan: går upp och pressar!'
+                    description: 'När bollen är på högersidan: pressar framifrån! När bollen är på vänstersidan: kommer in i banan och hjälper till centralt.'
                 }
             },
             FW: {
                 name: 'Forward',
                 roleText: 'Forward',
                 attack: {
-                    description: 'Rör sig mot bollsidan och gör sig tillgänglig. I mitten står FW på motsatt sida från OM (men högre upp) så båda är spelbara.'
+                    description: 'Rör sig mot bollsidan och gör sig spelbar. I mitten står FW på motsatt sida från OM (men högre upp) så båda är spelbara.'
                 },
                 defense: {
-                    description: 'Pressar aktivt när bollen går till kant! I mitten står FW mellan bollen och eget mål, redo att pressa när passning går ut.'
+                    description: 'Väntar med press tills bollen går till kanten. Pressar då från sidan för att täcka tillbakaspel och stänga passningsvägen centralt. Får inte sjunka ner för djupt – ska vara tillgänglig vid bollerövringar.'
                 }
             }
         };
@@ -718,34 +701,34 @@
             },
             defense: {
                 left: {
-                    // Ball on left - MB goes more to left wing
-                    MV: { x: 45, y: 88 },
-                    MB: { x: 32, y: 68 },   // More to left wing
-                    CM: { x: 35, y: 52 },
-                    VY: { x: 22, y: 38 },   // Pressing
-                    OM: { x: 45, y: 45 },
-                    HY: { x: 52, y: 62 },   // Falls in as extra back
-                    FW: { x: 30, y: 28 }    // Pressing close to ball
+                    // Ball on left - per PDF "Boll vänster"
+                    MV: { x: 40, y: 82 },
+                    MB: { x: 48, y: 62 },   // B - right side of central pair
+                    CM: { x: 30, y: 62 },   // C - left side of central pair
+                    VY: { x: 15, y: 43 },   // V - wide left, midfield
+                    OM: { x: 35, y: 48 },   // O - central-left
+                    HY: { x: 55, y: 47 },   // H - central-right, tucked in
+                    FW: { x: 35, y: 30 }    // F - near ball, pressing from side
                 },
                 center: {
-                    // Ball in center
-                    MV: { x: 50, y: 88 },
-                    MB: { x: 50, y: 68 },
-                    CM: { x: 48, y: 52 },
-                    VY: { x: 28, y: 48 },
-                    OM: { x: 52, y: 42 },
-                    HY: { x: 72, y: 48 },
-                    FW: { x: 50, y: 35 }    // Between ball and own goal
+                    // Ball in center - per PDF "Boll i mitten försvar"
+                    MV: { x: 48, y: 80 },
+                    MB: { x: 56, y: 58 },   // B - symmetric with CM
+                    CM: { x: 44, y: 58 },   // C - symmetric with MB
+                    VY: { x: 20, y: 46 },   // V - symmetric with HY
+                    OM: { x: 50, y: 45 },   // O - central, at circle
+                    HY: { x: 80, y: 46 },   // H - symmetric with VY
+                    FW: { x: 45, y: 38 }    // F - central, behind ball
                 },
                 right: {
-                    // Ball on right - MB goes more to right wing
-                    MV: { x: 55, y: 88 },
-                    MB: { x: 68, y: 68 },   // More to right wing
-                    CM: { x: 65, y: 52 },
-                    VY: { x: 48, y: 62 },   // Falls in as extra back
-                    OM: { x: 55, y: 45 },
-                    HY: { x: 78, y: 38 },   // Pressing
-                    FW: { x: 70, y: 28 }    // Pressing close to ball
+                    // Ball on right - MB goes out like CM does in left
+                    MV: { x: 60, y: 82 },
+                    MB: { x: 70, y: 62 },   // B - out toward right (mirrors CM x:30 in left)
+                    CM: { x: 52, y: 62 },   // C - stays left of MB (mirrors MB x:48 in left)
+                    VY: { x: 45, y: 47 },   // V - tucked in centrally
+                    OM: { x: 65, y: 48 },   // O - central-right
+                    HY: { x: 85, y: 43 },   // H - wide right, midfield
+                    FW: { x: 65, y: 30 }    // F - near ball, pressing from side
                 }
             }
         };
@@ -849,7 +832,7 @@
                         contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> FW står på motsatt sida från OM (högre upp) - båda är spelbara!</div>';
                     } else {
                         const side = currentZone === 'left' ? 'vänster' : 'höger';
-                        contextHtml = `<div class="context-info"><strong>🔄 Just nu:</strong> FW rör sig mot ${side} (bollsidan) - gör sig tillgänglig!</div>`;
+                        contextHtml = `<div class="context-info"><strong>🔄 Just nu:</strong> FW rör sig mot ${side} (bollsidan) - gör sig spelbar!</div>`;
                     }
                 }
                 else if (playerId === 'OM') {
@@ -874,41 +857,39 @@
             } else {
                 if (playerId === 'VY') {
                     if (currentZone === 'left') {
-                        contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> VY pressar - bollen är på vänstersidan!</div>';
+                        contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> VY pressar framifrån - bollen är på vänstersidan!</div>';
                     } else if (currentZone === 'right') {
-                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> VY faller in som extra back!</div>';
+                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> VY kommer in i banan och hjälper till centralt!</div>';
                     } else {
-                        contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> VY är redo att pressa eller falla in beroende på var bollen går!</div>';
+                        contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> VY håller kompakt - redo att pressa eller komma in i banan!</div>';
                     }
                 } else if (playerId === 'HY') {
                     if (currentZone === 'right') {
-                        contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> HY pressar - bollen är på högersidan!</div>';
+                        contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> HY pressar framifrån - bollen är på högersidan!</div>';
                     } else if (currentZone === 'left') {
-                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> HY faller in som extra back!</div>';
+                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> HY kommer in i banan och hjälper till centralt!</div>';
                     } else {
-                        contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> HY är redo att pressa eller falla in beroende på var bollen går!</div>';
+                        contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> HY håller kompakt - redo att pressa eller komma in i banan!</div>';
                     }
                 } else if (playerId === 'FW') {
                     if (currentZone === 'center') {
-                        contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> FW väntar mellan bollen och eget mål - redo att pressa när passning går till kant!</div>';
+                        contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> FW väntar - redo att pressa från sidan när bollen går till kant!</div>';
                     } else {
-                        contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> FW pressar aktivt nära bollen!</div>';
+                        contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> FW pressar från sidan - täcker tillbakaspel och stänger centralt!</div>';
                     }
                 } else if (playerId === 'MB') {
-                    if (currentZone === 'left') {
-                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> MB går mer mot vänsterkanten för att täcka!</div>';
-                    } else if (currentZone === 'right') {
-                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> MB går mer mot högerkanten för att täcka!</div>';
+                    if (currentZone !== 'center') {
+                        const side = currentZone === 'left' ? 'vänster' : 'höger';
+                        contextHtml = `<div class="context-info"><strong>↔️ Just nu:</strong> MB jobbar ihop med CM - skiftar mot ${side} tillsammans!</div>`;
                     } else {
-                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> MB håller centralt och är redo att skifta!</div>';
+                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> MB jobbar ihop med CM som ett centralt par!</div>';
                     }
                 } else if (playerId === 'CM') {
-                    if (currentZone === 'left') {
-                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> CM skiftar mot vänster - följer bollen!</div>';
-                    } else if (currentZone === 'right') {
-                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> CM skiftar mot höger - följer bollen!</div>';
+                    if (currentZone !== 'center') {
+                        const side = currentZone === 'left' ? 'vänster' : 'höger';
+                        contextHtml = `<div class="context-info"><strong>↔️ Just nu:</strong> CM jobbar ihop med MB - skiftar mot ${side} tillsammans!</div>`;
                     } else {
-                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> CM täcker mitten och är redo att skifta!</div>';
+                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> CM jobbar ihop med MB som ett centralt par!</div>';
                     }
                 } else if (playerId === 'OM') {
                     contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> OM hjälper till i pressen och stänger passningsvägar!</div>';
