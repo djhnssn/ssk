@@ -452,6 +452,312 @@
                 height: 18px;
             }
         }
+
+        /* ===== Flikar ===== */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 14px 0 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid #FFD700;
+            border-bottom: none;
+            border-radius: 14px 14px 0 0;
+            background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+            color: #FFD700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a1a;
+        }
+
+        .tab-panel {
+            display: none;
+            border-top: 2px solid #FFD700;
+            padding-top: 16px;
+        }
+
+        .tab-panel.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ===== Uppspel / film ===== */
+        .film-intro {
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
+            max-width: 720px;
+            margin: 4px auto 14px;
+            line-height: 1.6;
+        }
+
+        .film-layout {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .player.opponent {
+            background: linear-gradient(135deg, #e23b3b 0%, #9c1414 100%);
+            color: #fff;
+            border-color: #1a1a1a;
+            cursor: default;
+            z-index: 9;
+        }
+
+        .film-layout .pitch-container {
+            max-width: 420px;
+        }
+
+        #u-pitch .player {
+            width: 32px;
+            height: 32px;
+            font-size: 0.7rem;
+            cursor: default;
+            transition: all 1.2s cubic-bezier(0.4, 0.05, 0.35, 1);
+        }
+
+        #u-ball {
+            transition: all 1.2s cubic-bezier(0.4, 0.05, 0.35, 1);
+        }
+
+        #u-pitch .player.goalkeeper {
+            background: linear-gradient(135deg, #8a2233 0%, #5a1320 100%);
+            color: #fff;
+            border-color: #1a1a1a;
+        }
+
+        .pass-trail {
+            fill: none;
+            stroke: #93b8ff;
+            stroke-width: 1.3;
+            stroke-linecap: round;
+            stroke-dasharray: 0.1 2.7;
+        }
+
+        .player.has-ball {
+            animation: ballPulse 1.4s ease-in-out infinite;
+        }
+
+        @keyframes ballPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.75); }
+            50% { box-shadow: 0 0 0 11px rgba(255, 215, 0, 0); }
+        }
+
+        .player.option-target {
+            border-color: #fff;
+            box-shadow: 0 0 16px rgba(255, 255, 255, 0.75);
+        }
+
+        #u-arrows {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 11;
+        }
+
+        .pass-line {
+            fill: none;
+            stroke-linecap: round;
+        }
+
+        .pass-badge-text {
+            font-size: 4.2px;
+            font-weight: bold;
+            text-anchor: middle;
+            dominant-baseline: central;
+        }
+
+        .film-panel {
+            width: 360px;
+            flex-shrink: 0;
+        }
+
+        .step-box {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border-radius: 18px;
+            padding: 20px;
+            border: 2px solid #333;
+            margin-bottom: 16px;
+            min-height: 210px;
+        }
+
+        .step-box h3 {
+            color: #FFD700;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+
+        .step-box .step-text {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+        }
+
+        .option-list {
+            list-style: none;
+        }
+
+        .option-list li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            color: #bbb;
+            line-height: 1.45;
+        }
+
+        .option-list li.primary {
+            color: #eee;
+        }
+
+        .opt-num {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.75rem;
+            color: #1a1a1a;
+            background: rgba(255, 255, 255, 0.55);
+        }
+
+        .option-list li.primary .opt-num {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+
+        .opt-tag {
+            display: inline-block;
+            font-size: 0.62rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            background: #FFD700;
+            border-radius: 10px;
+            padding: 1px 8px;
+            margin-left: 6px;
+            text-transform: uppercase;
+        }
+
+        .film-controls {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 6px 0 14px;
+        }
+
+        .film-btn {
+            padding: 11px 18px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+            color: #FFD700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .film-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(255, 215, 0, 0.25);
+        }
+
+        .film-btn.primary {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a1a;
+        }
+
+        .film-btn:disabled {
+            opacity: 0.35;
+            cursor: default;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .progress-dots {
+            display: flex;
+            justify-content: center;
+            gap: 9px;
+            margin: 0 0 6px;
+        }
+
+        .progress-dots .dot {
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #444;
+            border: 2px solid #555;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .progress-dots .dot.done {
+            background: #8a6d00;
+            border-color: #FFD700;
+        }
+
+        .progress-dots .dot.active {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-color: #fff;
+            transform: scale(1.3);
+        }
+
+        @media (max-width: 900px) {
+            .film-panel {
+                width: 100%;
+                max-width: 420px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            #u-pitch .player {
+                width: 28px;
+                height: 28px;
+                font-size: 0.58rem;
+            }
+
+            .tab-btn {
+                padding: 9px 18px;
+                font-size: 0.85rem;
+            }
+
+            .film-btn {
+                padding: 9px 13px;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -465,6 +771,13 @@
                 <span style="background: #FFD700;"></span>
             </div>
         </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" id="tabbtn-board" onclick="switchTab('board')">Taktiktavla</button>
+            <button class="tab-btn" id="tabbtn-uppspel" onclick="switchTab('uppspel')">▶ Uppspel</button>
+        </div>
+
+        <div class="tab-panel active" id="tab-board">
 
         <div class="philosophy">
             <h3>Spelidé</h3>
@@ -512,9 +825,9 @@
                     <!-- Players -->
                     <div class="player goalkeeper" id="player-MV" onclick="showPlayerInfo('MV')">MV</div>
                     <div class="player" id="player-MB" onclick="showPlayerInfo('MB')">MB</div>
-                    <div class="player" id="player-CM" onclick="showPlayerInfo('CM')">CM</div>
+                    <div class="player" id="player-DM" onclick="showPlayerInfo('DM')">DM</div>
                     <div class="player" id="player-VY" onclick="showPlayerInfo('VY')">VY</div>
-                    <div class="player" id="player-OM" onclick="showPlayerInfo('OM')">OM</div>
+                    <div class="player" id="player-IM" onclick="showPlayerInfo('IM')">IM</div>
                     <div class="player" id="player-HY" onclick="showPlayerInfo('HY')">HY</div>
                     <div class="player" id="player-FW" onclick="showPlayerInfo('FW')">FW</div>
 
@@ -559,16 +872,16 @@
                         <span>Mittback</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-color field">CM</div>
-                        <span>Central mittfältare</span>
+                        <div class="legend-color field">DM</div>
+                        <span>Defensiv mitt</span>
                     </div>
                     <div class="legend-item">
                         <div class="legend-color field">VY</div>
                         <span>Vänster ytter</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-color field">OM</div>
-                        <span>Offensiv mittfältare</span>
+                        <div class="legend-color field">IM</div>
+                        <span>Innermittfältare</span>
                     </div>
                     <div class="legend-item">
                         <div class="legend-color field">HY</div>
@@ -584,6 +897,109 @@
                 </div>
             </div>
         </div>
+        </div><!-- /tab-board -->
+
+        <div class="tab-panel" id="tab-uppspel">
+            <p class="film-intro">
+                Här ser du hela vårt uppspel som en film &ndash; från målvakten till avslut, byggt på bilderna i Word-dokumentet.
+                Spelet stannar till vid varje station och visar passningsalternativen med pilar.
+                Gult lag = vi, rött lag = motståndare. Vi spelar uppåt i planen.
+            </p>
+
+            <div class="progress-dots" id="u-dots"></div>
+
+            <div class="film-controls">
+                <button class="film-btn" id="u-restart" onclick="filmRestart()">↺ Börja om</button>
+                <button class="film-btn" id="u-prev" onclick="filmPrev()">⏮ Föregående</button>
+                <button class="film-btn primary" id="u-play" onclick="filmToggle()">▶ Spela upp</button>
+                <button class="film-btn" id="u-next" onclick="filmNext()">Nästa ⏭</button>
+            </div>
+
+            <div class="film-layout">
+                <div class="pitch-container">
+                    <div class="pitch" id="u-pitch">
+                        <div class="pitch-lines">
+                            <svg viewBox="0 0 100 140" preserveAspectRatio="none">
+                                <rect x="2" y="2" width="96" height="136" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.5"/>
+                                <line x1="2" y1="70" x2="98" y2="70" stroke="rgba(255,255,255,0.6)" stroke-width="0.3"/>
+                                <circle cx="50" cy="70" r="12" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.3"/>
+                                <circle cx="50" cy="70" r="0.8" fill="rgba(255,255,255,0.6)"/>
+                                <rect x="25" y="2" width="50" height="18" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.3"/>
+                                <rect x="35" y="2" width="30" height="7" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.3"/>
+                                <circle cx="50" cy="14" r="0.6" fill="rgba(255,255,255,0.6)"/>
+                                <rect x="40" y="0" width="20" height="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.8)" stroke-width="0.3"/>
+                                <rect x="25" y="120" width="50" height="18" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.3"/>
+                                <rect x="35" y="131" width="30" height="7" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.3"/>
+                                <circle cx="50" cy="126" r="0.6" fill="rgba(255,255,255,0.6)"/>
+                                <rect x="40" y="138" width="20" height="2" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.8)" stroke-width="0.3"/>
+                            </svg>
+                        </div>
+
+                        <svg id="u-arrows" viewBox="0 0 100 140"></svg>
+
+                        <!-- Motståndare (rött lag, nr 1-7) -->
+                        <div class="player opponent" id="u-r1"></div>
+                        <div class="player opponent" id="u-r2"></div>
+                        <div class="player opponent" id="u-r3"></div>
+                        <div class="player opponent" id="u-r4"></div>
+                        <div class="player opponent" id="u-r5"></div>
+                        <div class="player opponent" id="u-r6"></div>
+                        <div class="player opponent" id="u-r7"></div>
+
+                        <!-- Vårt lag (gult): målvakt + utespelare med roller -->
+                        <div class="player goalkeeper" id="u-GK">MV</div>
+                        <div class="player" id="u-Y1">MB</div>
+                        <div class="player" id="u-Y2">HY</div>
+                        <div class="player" id="u-Y3">VY</div>
+                        <div class="player" id="u-Y4">DM</div>
+                        <div class="player" id="u-Y5">IM</div>
+                        <div class="player" id="u-Y6">FW</div>
+
+                        <!-- Boll -->
+                        <div class="ball" id="u-ball">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <radialGradient id="ballGradient2" cx="30%" cy="30%">
+                                        <stop offset="0%" style="stop-color:#ffffff"/>
+                                        <stop offset="100%" style="stop-color:#e8e8e8"/>
+                                    </radialGradient>
+                                </defs>
+                                <circle cx="50" cy="50" r="48" fill="url(#ballGradient2)" stroke="#222" stroke-width="3"/>
+                                <path d="M50 25 L65 40 L60 58 L40 58 L35 40 Z" fill="#1a1a1a"/>
+                                <path d="M25 18 L38 28 L32 38 L18 32 Z" fill="#1a1a1a"/>
+                                <path d="M75 18 L82 32 L68 38 L62 28 Z" fill="#1a1a1a"/>
+                                <path d="M22 62 L38 62 L42 78 L28 82 Z" fill="#1a1a1a"/>
+                                <path d="M78 62 L72 82 L58 78 L62 62 Z" fill="#1a1a1a"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="film-panel">
+                    <div class="step-box">
+                        <h3 id="u-title">Steg 1</h3>
+                        <p class="step-text" id="u-text"></p>
+                        <ul class="option-list" id="u-options"></ul>
+                    </div>
+
+                    <div class="legend">
+                        <h4>Så funkar det</h4>
+                        <div class="legend-item">
+                            <div class="legend-color field">▶</div>
+                            <span>Tryck <strong>Spela upp</strong> &ndash; filmen rullar och stannar vid varje pass.</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: radial-gradient(circle at 30% 30%, #fff, #bbb); color: #1a1a1a; border: 2px solid #1a1a1a;">⚽</div>
+                            <span>Den pulsande gula ringen visar vem som har bollen just nu.</span>
+                        </div>
+                        <div class="zone-hint">
+                            Blå pilar = passningsalternativ. Prickad blå linje = passning som redan spelats.
+                            Siffrorna på pilarna hör ihop med listan ovanför.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /tab-uppspel -->
     </div>
 
     <script>
@@ -610,12 +1026,12 @@
                     description: 'Fördelar bollen och styr uppspelet via kanterna. Följer upp för att inte skapa för stora luckor.'
                 },
                 defense: {
-                    description: 'Går upp och jobbar ihop med CM som ett centralt par. Skiftar mot bollsidan tillsammans.'
+                    description: 'Går upp och jobbar ihop med DM som ett centralt par. Skiftar mot bollsidan tillsammans.'
                 }
             },
-            CM: {
-                name: 'Central mittfältare',
-                roleText: 'Central mittfältare',
+            DM: {
+                name: 'Defensiv mitt',
+                roleText: 'Defensiv mitt',
                 attack: {
                     description: 'Tar emot bollen och kan bredda spelet ut till kanterna men också hitta bollar i djupet.'
                 },
@@ -633,11 +1049,11 @@
                     description: 'När bollen är på vänstersidan: pressar framifrån! När bollen är på högersidan: kommer in i banan och hjälper till centralt.'
                 }
             },
-            OM: {
-                name: 'Offensiv mittfältare',
-                roleText: 'Offensiv mittfältare',
+            IM: {
+                name: 'Innermittfältare',
+                roleText: 'Innermittfältare',
                 attack: {
-                    description: 'Möter upp bollen och gör sig spelbar. I mitten står OM på motsatt sida från FW så båda är spelbara.'
+                    description: 'Möter upp bollen och gör sig spelbar. I mitten står IM på motsatt sida från FW så båda är spelbara.'
                 },
                 defense: {
                     description: 'Hjälper till i pressen och stänger passningsvägar. Jobbar för att återerövra bollen.'
@@ -657,7 +1073,7 @@
                 name: 'Forward',
                 roleText: 'Forward',
                 attack: {
-                    description: 'Rör sig mot bollsidan och gör sig spelbar. I mitten står FW på motsatt sida från OM (men högre upp) så båda är spelbara.'
+                    description: 'Rör sig mot bollsidan och gör sig spelbar. I mitten står FW på motsatt sida från IM (men högre upp) så båda är spelbara.'
                 },
                 defense: {
                     description: 'Väntar med press tills bollen går till kanten. Pressar då från sidan för att täcka tillbakaspel och stänga passningsvägen centralt. Får inte sjunka ner för djupt – ska vara tillgänglig vid bollerövringar.'
@@ -672,19 +1088,19 @@
                     // Ball at VY - MV goes out far to left
                     MV: { x: 30, y: 88 },   // Goes out FAR to left
                     MB: { x: 40, y: 72 },
-                    CM: { x: 38, y: 58 },
+                    DM: { x: 38, y: 58 },
                     VY: { x: 15, y: 58 },   // Has ball
-                    OM: { x: 38, y: 45 },
+                    IM: { x: 38, y: 45 },
                     HY: { x: 88, y: 52 },   // Stays wide right
                     FW: { x: 35, y: 28 }    // More towards left
                 },
                 center: {
-                    // Ball at CM - FW and OM on opposite sides
+                    // Ball at DM - FW and IM on opposite sides
                     MV: { x: 52, y: 88 },
                     MB: { x: 50, y: 74 },
-                    CM: { x: 50, y: 60 },   // Has the ball
+                    DM: { x: 50, y: 60 },   // Has the ball
                     VY: { x: 15, y: 52 },   // Wide left
-                    OM: { x: 35, y: 42 },   // LEFT side
+                    IM: { x: 35, y: 42 },   // LEFT side
                     HY: { x: 85, y: 52 },   // Wide right
                     FW: { x: 65, y: 30 }    // RIGHT side, higher up
                 },
@@ -692,9 +1108,9 @@
                     // Ball at HY - MV goes out far to right
                     MV: { x: 70, y: 88 },   // Goes out FAR to right
                     MB: { x: 60, y: 72 },
-                    CM: { x: 62, y: 58 },
+                    DM: { x: 62, y: 58 },
                     VY: { x: 12, y: 52 },   // Stays wide left
-                    OM: { x: 62, y: 45 },
+                    IM: { x: 62, y: 45 },
                     HY: { x: 85, y: 58 },   // Has ball
                     FW: { x: 68, y: 28 }    // More towards right
                 }
@@ -704,29 +1120,29 @@
                     // Ball on left - per PDF "Boll vänster"
                     MV: { x: 40, y: 82 },
                     MB: { x: 48, y: 62 },   // B - right side of central pair
-                    CM: { x: 30, y: 62 },   // C - left side of central pair
+                    DM: { x: 30, y: 62 },   // C - left side of central pair
                     VY: { x: 15, y: 43 },   // V - wide left, midfield
-                    OM: { x: 35, y: 48 },   // O - central-left
+                    IM: { x: 35, y: 48 },   // O - central-left
                     HY: { x: 55, y: 47 },   // H - central-right, tucked in
                     FW: { x: 35, y: 30 }    // F - near ball, pressing from side
                 },
                 center: {
                     // Ball in center - per PDF "Boll i mitten försvar"
                     MV: { x: 48, y: 80 },
-                    MB: { x: 56, y: 58 },   // B - symmetric with CM
-                    CM: { x: 44, y: 58 },   // C - symmetric with MB
+                    MB: { x: 56, y: 58 },   // B - symmetric with DM
+                    DM: { x: 44, y: 58 },   // C - symmetric with MB
                     VY: { x: 20, y: 46 },   // V - symmetric with HY
-                    OM: { x: 50, y: 45 },   // O - central, at circle
+                    IM: { x: 50, y: 45 },   // O - central, at circle
                     HY: { x: 80, y: 46 },   // H - symmetric with VY
                     FW: { x: 45, y: 38 }    // F - central, behind ball
                 },
                 right: {
-                    // Ball on right - MB goes out like CM does in left
+                    // Ball on right - MB goes out like DM does in left
                     MV: { x: 60, y: 82 },
-                    MB: { x: 70, y: 62 },   // B - out toward right (mirrors CM x:30 in left)
-                    CM: { x: 52, y: 62 },   // C - stays left of MB (mirrors MB x:48 in left)
+                    MB: { x: 70, y: 62 },   // B - out toward right (mirrors DM x:30 in left)
+                    DM: { x: 52, y: 62 },   // C - stays left of MB (mirrors MB x:48 in left)
                     VY: { x: 45, y: 47 },   // V - tucked in centrally
-                    OM: { x: 65, y: 48 },   // O - central-right
+                    IM: { x: 65, y: 48 },   // O - central-right
                     HY: { x: 85, y: 43 },   // H - wide right, midfield
                     FW: { x: 65, y: 30 }    // F - near ball, pressing from side
                 }
@@ -737,7 +1153,7 @@
         const ballPositions = {
             attack: {
                 left: { x: 10, y: 52 },     // In front of VY
-                center: { x: 44, y: 55 },   // In front of CM
+                center: { x: 44, y: 55 },   // In front of DM
                 right: { x: 90, y: 52 }     // In front of HY
             },
             defense: {
@@ -817,8 +1233,8 @@
                     contextHtml = '<div class="context-info"><strong>⚽ Just nu:</strong> VY har bollen - speluppbyggnad via vänsterkanten!</div>';
                 } else if (playerId === 'HY' && currentZone === 'right') {
                     contextHtml = '<div class="context-info"><strong>⚽ Just nu:</strong> HY har bollen - speluppbyggnad via högerkanten!</div>';
-                } else if (playerId === 'CM' && currentZone === 'center') {
-                    contextHtml = '<div class="context-info"><strong>⚽ Just nu:</strong> CM har bollen - redo att spela ut till kanterna!</div>';
+                } else if (playerId === 'DM' && currentZone === 'center') {
+                    contextHtml = '<div class="context-info"><strong>⚽ Just nu:</strong> DM har bollen - redo att spela ut till kanterna!</div>';
                 }
                 else if (playerId === 'MV') {
                     if (currentZone === 'left') {
@@ -829,17 +1245,17 @@
                 }
                 else if (playerId === 'FW') {
                     if (currentZone === 'center') {
-                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> FW står på motsatt sida från OM (högre upp) - båda är spelbara!</div>';
+                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> FW står på motsatt sida från IM (högre upp) - båda är spelbara!</div>';
                     } else {
                         const side = currentZone === 'left' ? 'vänster' : 'höger';
                         contextHtml = `<div class="context-info"><strong>🔄 Just nu:</strong> FW rör sig mot ${side} (bollsidan) - gör sig spelbar!</div>`;
                     }
                 }
-                else if (playerId === 'OM') {
+                else if (playerId === 'IM') {
                     if (currentZone === 'center') {
-                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> OM står på motsatt sida från FW - båda är spelbara!</div>';
+                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> IM står på motsatt sida från FW - båda är spelbara!</div>';
                     } else {
-                        contextHtml = '<div class="context-info"><strong>🔄 Just nu:</strong> OM möter upp bollen mot bollsidan!</div>';
+                        contextHtml = '<div class="context-info"><strong>🔄 Just nu:</strong> IM möter upp bollen mot bollsidan!</div>';
                     }
                 }
                 else if (playerId === 'HY' && currentZone === 'left') {
@@ -851,8 +1267,8 @@
                     const side = currentZone === 'left' ? 'vänster' : 'höger';
                     contextHtml = `<div class="context-info"><strong>↔️ Just nu:</strong> MB följer med mot ${side} i uppspelet!</div>`;
                 }
-                else if (playerId === 'CM' && currentZone !== 'center') {
-                    contextHtml = '<div class="context-info"><strong>🔄 Just nu:</strong> CM stödjer uppspelet och är spelbar!</div>';
+                else if (playerId === 'DM' && currentZone !== 'center') {
+                    contextHtml = '<div class="context-info"><strong>🔄 Just nu:</strong> DM stödjer uppspelet och är spelbar!</div>';
                 }
             } else {
                 if (playerId === 'VY') {
@@ -880,19 +1296,19 @@
                 } else if (playerId === 'MB') {
                     if (currentZone !== 'center') {
                         const side = currentZone === 'left' ? 'vänster' : 'höger';
-                        contextHtml = `<div class="context-info"><strong>↔️ Just nu:</strong> MB jobbar ihop med CM - skiftar mot ${side} tillsammans!</div>`;
+                        contextHtml = `<div class="context-info"><strong>↔️ Just nu:</strong> MB jobbar ihop med DM - skiftar mot ${side} tillsammans!</div>`;
                     } else {
-                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> MB jobbar ihop med CM som ett centralt par!</div>';
+                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> MB jobbar ihop med DM som ett centralt par!</div>';
                     }
-                } else if (playerId === 'CM') {
+                } else if (playerId === 'DM') {
                     if (currentZone !== 'center') {
                         const side = currentZone === 'left' ? 'vänster' : 'höger';
-                        contextHtml = `<div class="context-info"><strong>↔️ Just nu:</strong> CM jobbar ihop med MB - skiftar mot ${side} tillsammans!</div>`;
+                        contextHtml = `<div class="context-info"><strong>↔️ Just nu:</strong> DM jobbar ihop med MB - skiftar mot ${side} tillsammans!</div>`;
                     } else {
-                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> CM jobbar ihop med MB som ett centralt par!</div>';
+                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> DM jobbar ihop med MB som ett centralt par!</div>';
                     }
-                } else if (playerId === 'OM') {
-                    contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> OM hjälper till i pressen och stänger passningsvägar!</div>';
+                } else if (playerId === 'IM') {
+                    contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> IM hjälper till i pressen och stänger passningsvägar!</div>';
                 } else if (playerId === 'MV') {
                     contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> MV kommunicerar och styr försvarets positionering!</div>';
                 }
@@ -927,6 +1343,320 @@
             if (e.target.classList.contains('pitch') || e.target.closest('.pitch-lines')) {
                 hidePlayerInfo();
             }
+        });
+
+        /* ============================================================
+           FLIKAR
+           ============================================================ */
+        function switchTab(name) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + name).classList.add('active');
+            document.getElementById('tabbtn-' + name).classList.add('active');
+            if (name === 'uppspel') {
+                filmRender(filmStep);
+            } else {
+                filmPause();
+            }
+        }
+
+        /* ============================================================
+           UPPSPEL - FILM
+           ============================================================ */
+        const SVG_NS = 'http://www.w3.org/2000/svg';
+
+        // Varje steg bygger på en bild i bilder.docx. Spelarpositioner i % av
+        // planen, bollens läge och passningsalternativ (pilar). Liggande plan,
+        // vi spelar mot höger. Gult lag: roller. Rött lag: nr 1-7.
+        const PY = 1.4; // svg-y = y% * PY (staende plan, viewBox 100x140)
+
+        const FILM_STEPS = [
+            {
+                title: 'Steg 1 \u2013 Målvakten startar uppspelet',
+                text: 'Vi har bollen och bygger upp anfallet i vår anfallsformation. HY och VY har gått ut breda på var sin kant och gör sig spelbara. Målvakten startar uppspelet.',
+                ball: 'GK',
+                ballAt: [63, 90],
+                yellow: { GK: [59, 92.5], Y1: [43, 83.2], Y2: [89, 84.2], Y3: [11, 83.7], Y4: [50, 69], Y5: [59, 57], Y6: [44, 47] },
+                red: [[50, 12], [21, 44.2], [46, 42.5], [76, 43.5], [32.5, 74.5], [62, 75.4], [45, 62]],
+                trail: null,
+                arrows: [
+                    { to: 'Y2', text: 'MV spelar ut bollen till HY ute på högerkanten.' },
+                    { to: 'Y3', text: 'MV kan också spela ut till VY på vänsterkanten.' }
+                ]
+            },
+            {
+                title: 'Steg 2 \u2013 HY har bollen på kanten',
+                text: 'HY har fått bollen ute på kanten (prickade linjen visar passningen från MV). Härifrån finns tre passningsalternativ framåt.',
+                ball: 'Y2',
+                ballAt: [90, 71],
+                yellow: { GK: [69, 92.2], Y1: [52, 82.8], Y2: [91, 72.9], Y3: [19, 57.6], Y4: [67.5, 66.5], Y5: [67, 53], Y6: [78, 39.7] },
+                red: [[51, 11.1], [41, 36.8], [59, 39.6], [86, 52.4], [34, 73.6], [70, 78.6], [54.5, 62.2]],
+                trail: [[69, 92.2], [91, 72.9]],
+                arrows: [
+                    { to: 'Y4', text: 'Kort passning inåt banan till DM.' },
+                    { to: 'Y5', text: 'Passning centralt till IM.' },
+                    { to: [87, 20], text: 'Lång boll i ytan framåt längs kanten.' }
+                ]
+            },
+            {
+                title: 'Steg 3 \u2013 IM har bollen centralt',
+                text: 'IM har bollen i mitten av planen med ansiktet mot mål. Härifrån finns flera vägar framåt.',
+                ball: 'Y5',
+                ballAt: [67, 51],
+                yellow: { GK: [53, 82.5], Y1: [50, 71.5], Y2: [90, 57.8], Y3: [21, 48.8], Y4: [46.6, 60.7], Y5: [66, 53], Y6: [77, 40.6] },
+                red: [[50, 12], [50, 42.5], [70, 37.2], [86, 48], [35, 61.5], [68, 63.6], [57, 55.2]],
+                trail: null,
+                arrows: [
+                    { to: 'Y3', text: 'Byt kant \u2013 pass till VY ute på vänsterkanten.' },
+                    { to: 'Y6', text: 'Boll i djupled till FW.' },
+                    { to: 'Y2', text: 'Tillbaka till HY om vi behöver vända spelet.' }
+                ]
+            },
+            {
+                title: 'Steg 4 \u2013 VY har bollen högt på kanten',
+                text: 'VY har bollen högt på vänsterkanten. FW gör en löpning i djupet mellan motståndarnas två backar \u2013 passet spelas i ytan framför FW.',
+                ball: 'Y3',
+                ballAt: [17, 35],
+                yellow: { GK: [57, 81.5], Y1: [37, 54], Y2: [75, 33.9], Y3: [17, 38.5], Y4: [33, 48.6], Y5: [39, 39.6], Y6: [39, 30] },
+                red: [[50, 11.1], [28, 35.6], [48, 33.7], [67, 41.5], [24, 47.5], [51, 48.8], [45, 42.9]],
+                trail: null,
+                arrows: [
+                    { to: 'Y5', text: 'Säkert tillbaka till IM för att behålla bollen.' },
+                    { to: [42, 22], text: 'Pass i djupet till FW \u2013 bollen spelas i ytan framför FW att springa på.' }
+                ]
+            },
+            {
+                title: 'Steg 5 \u2013 FW avslutar',
+                text: 'FW har tagit emot bollen vid straffområdet och är fri mot mål. Hela uppspelet \u2013 från målvakt till avslut \u2013 är klart!',
+                ball: 'Y6',
+                ballAt: [43, 22],
+                yellow: { GK: [50, 76], Y1: [47, 51.2], Y2: [72, 22.9], Y3: [18, 27.7], Y4: [33, 39.7], Y5: [48, 37.2], Y6: [43, 24.8] },
+                red: [[49, 12], [29, 25.3], [48, 26.7], [59, 22.7], [22, 36.5], [48, 46.6], [38.6, 30.1]],
+                trail: null,
+                arrows: [
+                    { to: [48, 2], text: 'Skott \u2013 avslut mot mål. Mål!' }
+                ]
+            }
+        ];
+
+        const LAST_STEP = FILM_STEPS.length - 1;
+        const MOVE_MS = 1300;   // tid for spelare/boll att forflytta sig
+        const HOLD_MS = 3000;  // tid som passningsalternativen visas
+
+        let filmStep = 0;
+        let filmPlaying = false;
+        let filmArrowTimer = null;
+        let filmPlayTimer = null;
+
+        function toSvg(p) { return [p[0], p[1] * PY]; }
+
+        function buildFilmDots() {
+            const c = document.getElementById('u-dots');
+            FILM_STEPS.forEach((_, i) => {
+                const d = document.createElement('div');
+                d.className = 'dot';
+                d.title = 'Steg ' + (i + 1);
+                d.addEventListener('click', () => { filmPause(); filmRender(i); });
+                c.appendChild(d);
+            });
+        }
+
+        function filmRender(step) {
+            clearTimeout(filmArrowTimer);
+            filmStep = step;
+            const s = FILM_STEPS[step];
+
+            // Vart lag (gult): GK + Y1-Y6
+            Object.keys(s.yellow).forEach(key => {
+                const el = document.getElementById('u-' + key);
+                const p = s.yellow[key];
+                el.style.left = p[0] + '%';
+                el.style.top = p[1] + '%';
+                el.classList.toggle('has-ball', key === s.ball);
+                el.classList.remove('option-target');
+            });
+
+            // Motstandare (rott): r1-r7
+            s.red.forEach((p, i) => {
+                const el = document.getElementById('u-r' + (i + 1));
+                el.style.left = p[0] + '%';
+                el.style.top = p[1] + '%';
+            });
+
+            // Bollen
+            const ball = document.getElementById('u-ball');
+            ball.style.left = s.ballAt[0] + '%';
+            ball.style.top = s.ballAt[1] + '%';
+
+            // Text och alternativlista
+            document.getElementById('u-title').textContent = s.title;
+            document.getElementById('u-text').textContent = s.text;
+            const ol = document.getElementById('u-options');
+            ol.innerHTML = '';
+            s.arrows.forEach((a, i) => {
+                const li = document.createElement('li');
+                li.innerHTML = '<span class="opt-num">' + (i + 1) + '</span>' +
+                               '<span>' + a.text + '</span>';
+                ol.appendChild(li);
+            });
+
+            // Progress-prickar
+            document.querySelectorAll('#u-dots .dot').forEach((d, i) => {
+                d.classList.toggle('active', i === step);
+                d.classList.toggle('done', i < step);
+            });
+
+            // Rensa pilar nu, rita dem nar spelarna stannat
+            document.getElementById('u-arrows').innerHTML = '';
+            updateFilmControls();
+            filmArrowTimer = setTimeout(() => filmDrawArrows(step), MOVE_MS);
+        }
+
+        function filmDrawArrows(step) {
+            const s = FILM_STEPS[step];
+            const layer = document.getElementById('u-arrows');
+            layer.innerHTML = '';
+
+            // Prickad linje for passning som redan spelats
+            if (s.trail) {
+                drawTrail(layer, toSvg(s.trail[0]), toSvg(s.trail[1]));
+            }
+
+            const start = toSvg(s.ballAt);
+            s.arrows.forEach((a, i) => {
+                const endPt = Array.isArray(a.to) ? a.to : s.yellow[a.to];
+                drawPassArrow(layer, start, toSvg(endPt), i + 1);
+                if (!Array.isArray(a.to)) {
+                    const t = document.getElementById('u-' + a.to);
+                    if (t) t.classList.add('option-target');
+                }
+            });
+        }
+
+        // Prickad spar-linje (koordinater i svg-rummet 100 x 57)
+        function drawTrail(layer, A, B) {
+            const line = document.createElementNS(SVG_NS, 'line');
+            line.setAttribute('x1', A[0]); line.setAttribute('y1', A[1]);
+            line.setAttribute('x2', B[0]); line.setAttribute('y2', B[1]);
+            line.setAttribute('class', 'pass-trail');
+            line.style.opacity = 0;
+            layer.appendChild(line);
+            requestAnimationFrame(() => {
+                line.style.transition = 'opacity 0.5s ease';
+                line.style.opacity = 1;
+            });
+        }
+
+        // Ritar en passningspil i svg-lagret (koordinater i svg-rummet 100 x 57)
+        function drawPassArrow(layer, S, E, num) {
+            const dx = E[0] - S[0], dy = E[1] - S[1];
+            const len = Math.hypot(dx, dy) || 1;
+            const ux = dx / len, uy = dy / len;
+            const px = -uy, py = ux;
+            let sg = 5, eg = 4.5, hl = 4.5;
+            const hw = 2.8;
+            const need = sg + eg + hl + 2;
+            if (len < need) { const k = len / need; sg *= k; eg *= k; hl *= k; }
+            const sx = S[0] + ux * sg, sy = S[1] + uy * sg;       // pilstart
+            const tx = E[0] - ux * eg, ty = E[1] - uy * eg;       // pilspets
+            const bx = tx - ux * hl, by = ty - uy * hl;           // bas av pilhuvud
+            const col = '#2f6dff';
+
+            const line = document.createElementNS(SVG_NS, 'line');
+            line.setAttribute('x1', sx); line.setAttribute('y1', sy);
+            line.setAttribute('x2', bx); line.setAttribute('y2', by);
+            line.setAttribute('class', 'pass-line');
+            line.setAttribute('stroke', col);
+            line.setAttribute('stroke-width', 1.9);
+            layer.appendChild(line);
+
+            const head = document.createElementNS(SVG_NS, 'polygon');
+            head.setAttribute('points',
+                tx + ',' + ty + ' ' +
+                (bx + px * hw) + ',' + (by + py * hw) + ' ' +
+                (bx - px * hw) + ',' + (by - py * hw));
+            head.setAttribute('fill', col);
+            head.setAttribute('class', 'pass-deco');
+            layer.appendChild(head);
+
+            const mx = sx + (bx - sx) * 0.52, my = sy + (by - sy) * 0.52;
+            const badge = document.createElementNS(SVG_NS, 'circle');
+            badge.setAttribute('cx', mx); badge.setAttribute('cy', my);
+            badge.setAttribute('r', 3.8);
+            badge.setAttribute('fill', '#13348f');
+            badge.setAttribute('stroke', '#fff');
+            badge.setAttribute('stroke-width', 0.5);
+            badge.setAttribute('class', 'pass-deco');
+            layer.appendChild(badge);
+
+            const txt = document.createElementNS(SVG_NS, 'text');
+            txt.setAttribute('x', mx); txt.setAttribute('y', my);
+            txt.setAttribute('fill', '#fff');
+            txt.setAttribute('class', 'pass-badge-text pass-deco');
+            txt.textContent = num;
+            layer.appendChild(txt);
+
+            // Rita-in-animation
+            const total = Math.hypot(bx - sx, by - sy);
+            line.style.strokeDasharray = total;
+            line.style.strokeDashoffset = total;
+            requestAnimationFrame(() => {
+                line.style.transition = 'stroke-dashoffset 0.55s ease';
+                line.style.strokeDashoffset = 0;
+            });
+            [head, badge, txt].forEach(el => {
+                el.style.opacity = 0;
+                requestAnimationFrame(() => {
+                    el.style.transition = 'opacity 0.4s ease';
+                    el.style.transitionDelay = '0.4s';
+                    el.style.opacity = 1;
+                });
+            });
+        }
+
+        function updateFilmControls() {
+            const play = document.getElementById('u-play');
+            play.textContent = filmPlaying ? '⏸ Pausa'
+                : (filmStep >= LAST_STEP ? '↻ Spela igen' : '▶ Spela upp');
+            document.getElementById('u-prev').disabled = filmStep === 0;
+            document.getElementById('u-next').disabled = filmStep === LAST_STEP;
+        }
+
+        function filmPlay() {
+            if (filmStep >= LAST_STEP) filmRender(0);
+            filmPlaying = true;
+            updateFilmControls();
+            filmAdvance();
+        }
+
+        function filmAdvance() {
+            clearTimeout(filmPlayTimer);
+            filmPlayTimer = setTimeout(() => {
+                if (!filmPlaying) return;
+                if (filmStep < LAST_STEP) {
+                    filmRender(filmStep + 1);
+                    filmAdvance();
+                } else {
+                    filmPlaying = false;
+                    updateFilmControls();
+                }
+            }, MOVE_MS + HOLD_MS);
+        }
+
+        function filmPause() {
+            filmPlaying = false;
+            clearTimeout(filmPlayTimer);
+            updateFilmControls();
+        }
+
+        function filmToggle() { filmPlaying ? filmPause() : filmPlay(); }
+        function filmNext() { filmPause(); if (filmStep < LAST_STEP) filmRender(filmStep + 1); }
+        function filmPrev() { filmPause(); if (filmStep > 0) filmRender(filmStep - 1); }
+        function filmRestart() { filmPause(); filmRender(0); }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            buildFilmDots();
+            filmRender(0);
         });
     </script>
 </body>
