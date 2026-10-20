@@ -453,6 +453,7 @@
             }
         }
 
+
         /* ===== Flikar ===== */
         .tabs {
             display: flex;
@@ -500,6 +501,266 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+
+        /* ===== Övningar ===== */
+        .ovning {
+            max-width: 850px;
+            margin: 0 auto 24px;
+        }
+
+        .ovning h3 {
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .ovning-rubrik {
+            color: #FFD700;
+            margin: 14px 0 8px;
+        }
+
+        .ovning-lista {
+            padding-left: 1.4em;
+            line-height: 1.6;
+        }
+
+        .ovning-lista li {
+            margin-bottom: 8px;
+        }
+
+        .ovning-lista .video-wrap {
+            margin-top: 10px;
+        }
+
+        .video-wrap {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            border: 2px solid #FFD700;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ===== Press ===== */
+        #tab-press {
+            --pr-chalk: #ffffff;
+            --pr-team: #FFD700;
+            --pr-dark: #1a1a1a;
+            --pr-opp: #e23b3b;
+        }
+
+        .pr-keys {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            max-width: 850px;
+            margin: 4px auto 18px;
+        }
+
+        .pr-key {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 12px 14px;
+        }
+
+        .pr-key strong {
+            display: block;
+            color: #FFD700;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .pr-key span {
+            color: #aaa;
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+
+        .pr-layout {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .pr-stage {
+            width: 100%;
+            max-width: 560px;
+            min-width: 0;
+        }
+
+        .pr-pitch {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid #FFD700;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            background: #3a7233;
+        }
+
+        .pr-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 14px;
+        }
+
+        .pr-side {
+            display: inline-flex;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .pr-side button {
+            padding: 9px 14px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 0;
+            background: #1a1a1a;
+            color: #FFD700;
+            cursor: pointer;
+        }
+
+        .pr-side button[aria-pressed="true"] {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a1a;
+        }
+
+        .pr-panel {
+            width: 360px;
+            flex-shrink: 0;
+        }
+
+        .pr-panel .step-box {
+            min-height: 190px;
+        }
+
+        .pr-count {
+            color: #888;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .pr-steps {
+            list-style: none;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border: 2px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .pr-steps li + li {
+            border-top: 1px solid #333;
+        }
+
+        .pr-steps button {
+            width: 100%;
+            text-align: left;
+            background: transparent;
+            border: 0;
+            color: #bbb;
+            font: inherit;
+            font-size: 0.85rem;
+            padding: 9px 12px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .pr-steps button:hover {
+            background: rgba(255, 215, 0, 0.06);
+        }
+
+        .pr-steps button[aria-current="step"] {
+            background: rgba(255, 215, 0, 0.12);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .pr-steps .opt-num {
+            background: #444;
+            color: #ddd;
+        }
+
+        .pr-steps button[aria-current="step"] .opt-num {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #1a1a1a;
+        }
+
+        .pr-legend {
+            margin-top: 16px;
+        }
+
+        .pr-legend svg {
+            width: 38px;
+            height: 24px;
+            border-radius: 5px;
+            background: #3a7233;
+            flex-shrink: 0;
+        }
+
+        /* Taktiktavlan (SVG) */
+        .pr-ta { fill: #3a7233; }
+        .pr-tb { fill: #2d5a27; }
+        .pr-chalk { fill: none; stroke: rgba(255, 255, 255, 0.75); stroke-width: 3.5; }
+        .pr-chalk-fill { fill: rgba(255, 255, 255, 0.75); }
+        .pr-dash { fill: none; stroke: var(--pr-chalk); stroke-width: 3; stroke-dasharray: 9 9; opacity: 0.55; }
+        .pr-ov { opacity: 0; transition: opacity 0.35s ease; }
+        .pr-ov.on { opacity: 1; }
+        .pr-ov.dim { opacity: 0.4; }
+        .pr-corr { fill: var(--pr-chalk); opacity: 0.12; }
+        .pr-corr-label { font-weight: 700; font-size: 22px; letter-spacing: 3px; fill: var(--pr-chalk); text-anchor: middle; opacity: 0.85; }
+        .pr-pass { fill: none; stroke: var(--pr-chalk); stroke-width: 5; stroke-linecap: round; }
+        .pr-ring { fill: none; stroke: var(--pr-chalk); stroke-width: 3.5; stroke-dasharray: 7 6; }
+        .pr-run { fill: none; stroke: var(--pr-team); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 13 10; }
+        .pr-ghost { fill: none; stroke: var(--pr-team); stroke-width: 3; stroke-dasharray: 6 6; opacity: 0.8; }
+        .pr-cone { fill: var(--pr-dark); opacity: 0.35; }
+        .pr-lane { fill: none; stroke: var(--pr-chalk); stroke-width: 3; stroke-dasharray: 4 8; stroke-linecap: round; }
+        .pr-stop { fill: none; stroke: var(--pr-chalk); stroke-width: 6; stroke-linecap: round; }
+        .pr-zone { fill: var(--pr-team); fill-opacity: 0.18; stroke: var(--pr-team); stroke-width: 3; stroke-dasharray: 8 7; }
+        .pr-mark { fill: none; stroke: var(--pr-team); stroke-width: 4; stroke-dasharray: 8 6; }
+        .pr-x { fill: none; stroke: var(--pr-opp); stroke-width: 8; stroke-linecap: round; }
+        .pr-disc { fill: var(--pr-team); stroke: var(--pr-dark); stroke-width: 3.5; }
+        .pr-halo { fill: none; stroke: var(--pr-chalk); stroke-width: 4; opacity: 0; transition: opacity 0.3s ease; }
+        .pr-active .pr-halo { opacity: 1; }
+        .pr-lbl { font-weight: 700; fill: var(--pr-dark); text-anchor: middle; }
+        .pr-mv { font-weight: 700; font-size: 30px; fill: var(--pr-chalk); text-anchor: middle; opacity: 0.85; }
+        .pr-ball { fill: #fff; stroke: var(--pr-dark); stroke-width: 3.5; }
+        .pr-ah-run { fill: var(--pr-team); }
+        .pr-ah-pass { fill: var(--pr-chalk); }
+
+        @media (max-width: 900px) {
+            .pr-panel {
+                width: 100%;
+                max-width: 560px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .pr-keys {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pr-ov, .pr-halo { transition: none; }
         }
 
         /* ===== Uppspel / film ===== */
@@ -669,6 +930,32 @@
             text-transform: uppercase;
         }
 
+        .film-scen {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0 14px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .film-choice {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 10px;
+            align-items: center;
+            margin-bottom: 14px;
+            color: #FFD700;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .film-choice[hidden] {
+            display: none;
+        }
+
         .film-controls {
             display: flex;
             justify-content: center;
@@ -774,14 +1061,16 @@
 
         <div class="tabs">
             <button class="tab-btn active" id="tabbtn-board" onclick="switchTab('board')">Taktiktavla</button>
+            <button class="tab-btn" id="tabbtn-press" onclick="switchTab('press')">⚡ Press</button>
             <button class="tab-btn" id="tabbtn-uppspel" onclick="switchTab('uppspel')">▶ Uppspel</button>
+            <button class="tab-btn" id="tabbtn-ovningar" onclick="switchTab('ovningar')">Övningar</button>
         </div>
 
         <div class="tab-panel active" id="tab-board">
 
         <div class="philosophy">
             <h3>Spelidé</h3>
-            <p>Speluppbyggnad går oftast via kanterna – alla ska göra sig spelbara och yttrarna håller bredd. I försvar startar vi kompakt. FW väntar med press tills passningen gått till kanten, då pressar FW från sidan för att täcka tillbakaspel medan yttern pressar framifrån.</p>
+            <p>Vi spelar 2-3-1: två mittbackar, tre på mittfältet (VY, IM, HY) och en forward. Speluppbyggnad går oftast via kanterna – alla ska göra sig spelbara och yttrarna håller bredd. I försvar startar vi kompakt i mittkorridoren. Passet ut till kanten är signalen för pressen – se fliken Press.</p>
         </div>
 
         <div class="controls">
@@ -824,8 +1113,8 @@
 
                     <!-- Players -->
                     <div class="player goalkeeper" id="player-MV" onclick="showPlayerInfo('MV')">MV</div>
-                    <div class="player" id="player-MB" onclick="showPlayerInfo('MB')">MB</div>
-                    <div class="player" id="player-DM" onclick="showPlayerInfo('DM')">DM</div>
+                    <div class="player" id="player-VMB" onclick="showPlayerInfo('VMB')">MB</div>
+                    <div class="player" id="player-HMB" onclick="showPlayerInfo('HMB')">MB</div>
                     <div class="player" id="player-VY" onclick="showPlayerInfo('VY')">VY</div>
                     <div class="player" id="player-IM" onclick="showPlayerInfo('IM')">IM</div>
                     <div class="player" id="player-HY" onclick="showPlayerInfo('HY')">HY</div>
@@ -862,18 +1151,14 @@
                 </div>
 
                 <div class="legend">
-                    <h4>Positioner</h4>
+                    <h4>Positioner – 2-3-1</h4>
                     <div class="legend-item">
                         <div class="legend-color gk">MV</div>
                         <span>Målvakt</span>
                     </div>
                     <div class="legend-item">
                         <div class="legend-color field">MB</div>
-                        <span>Mittback</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color field">DM</div>
-                        <span>Defensiv mitt</span>
+                        <span>Mittback (två st, vänster och höger)</span>
                     </div>
                     <div class="legend-item">
                         <div class="legend-color field">VY</div>
@@ -899,12 +1184,95 @@
         </div>
         </div><!-- /tab-board -->
 
+        <div class="tab-panel" id="tab-press">
+            <div class="philosophy">
+                <h3>Så pressar vi uppspelet</h3>
+                <p>När motståndarnas målvakt har bollen stänger vi mitten och styr spelet ut mot kanten. Passet ut till deras back är signalen – då går hela laget i press samtidigt.</p>
+            </div>
+
+            <div class="pr-keys">
+                <div class="pr-key"><strong>1. Stäng mitten</strong><span>Vi startar samlade i mittkorridoren. De ska tvingas spela ut till en back.</span></div>
+                <div class="pr-key"><strong>2. Passet är signalen</strong><span>Ingen pressar målvakten. När bollen går ut till kanten – då kör vi.</span></div>
+                <div class="pr-key"><strong>3. Alla samtidigt</strong><span>Kanten, mitten och den andra backen ska vara stängda på en gång.</span></div>
+            </div>
+
+            <div class="pr-layout">
+                <div class="pr-stage">
+                    <svg class="pr-pitch" viewBox="50 88 876 760" role="img" aria-labelledby="pr-title">
+                        <title id="pr-title">Taktiktavla som visar hur laget pressar motståndarnas uppspel, steg för steg</title>
+                        <defs>
+                            <pattern id="pr-stripes" x="50" y="88" width="876" height="140" patternUnits="userSpaceOnUse">
+                                <rect width="876" height="70" class="pr-ta"/><rect y="70" width="876" height="70" class="pr-tb"/>
+                            </pattern>
+                            <marker id="pr-ahRun" viewBox="0 0 20 20" markerWidth="20" markerHeight="20" refX="12" refY="10" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 1 L20 10 L0 19 Z" class="pr-ah-run"/></marker>
+                            <marker id="pr-ahPass" viewBox="0 0 20 20" markerWidth="20" markerHeight="20" refX="12" refY="10" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 1 L20 10 L0 19 Z" class="pr-ah-pass"/></marker>
+                        </defs>
+                        <rect x="50" y="88" width="876" height="760" fill="url(#pr-stripes)"/>
+                        <g class="pr-chalk">
+                            <rect x="78" y="116" width="820" height="1165"/>
+                            <rect x="241" y="116" width="494" height="192"/>
+                            <rect x="357" y="116" width="262" height="69"/>
+                            <rect x="438" y="98" width="100" height="18"/>
+                            <path d="M394 308 A112 112 0 0 0 582 308"/>
+                            <line x1="78" y1="698" x2="898" y2="698"/>
+                            <circle cx="488" cy="698" r="126"/>
+                        </g>
+                        <circle class="pr-chalk-fill" cx="488" cy="250" r="4.5"/>
+                        <circle class="pr-chalk-fill" cx="488" cy="698" r="5"/>
+                        <line class="pr-dash" x1="280" y1="88" x2="280" y2="848"/>
+                        <line class="pr-dash" x1="696" y1="88" x2="696" y2="848"/>
+                        <text class="pr-mv" x="488" y="164">MV</text>
+                        <g id="pr-dyn"></g>
+                    </svg>
+
+                    <div class="pr-controls">
+                        <button class="film-btn" id="pr-prev" type="button">⏮ Föregående</button>
+                        <button class="film-btn primary" id="pr-play" type="button">▶ Spela upp</button>
+                        <button class="film-btn" id="pr-next" type="button">Nästa ⏭</button>
+                        <div class="pr-side" role="group" aria-label="Passet går åt">
+                            <button id="pr-sideL" type="button" aria-pressed="true">Pass vänster</button>
+                            <button id="pr-sideR" type="button" aria-pressed="false">Pass höger</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pr-panel">
+                    <div class="step-box">
+                        <p class="pr-count" id="pr-count">Steg 1 av 9</p>
+                        <h3 id="pr-stepTitle">Utgångsläge</h3>
+                        <p class="step-text" id="pr-stepText"></p>
+                    </div>
+
+                    <ol class="pr-steps" id="pr-steps"></ol>
+
+                    <div class="legend pr-legend">
+                        <h4>Teckenförklaring</h4>
+                        <div class="legend-item"><svg viewBox="0 0 38 24" aria-hidden="true"><circle cx="19" cy="12" r="8" class="pr-disc" style="stroke-width:2"/></svg><span>Vi (MB = mittback)</span></div>
+                        <div class="legend-item"><svg viewBox="0 0 38 24" aria-hidden="true"><path d="M13 6 L25 18 M25 6 L13 18" class="pr-x" style="stroke-width:4"/></svg><span>Motståndare</span></div>
+                        <div class="legend-item"><svg viewBox="0 0 38 24" aria-hidden="true"><path d="M5 12 H27" class="pr-pass" style="stroke-width:3"/><path d="M26 7 L34 12 L26 17 Z" class="pr-ah-pass"/></svg><span>Pass</span></div>
+                        <div class="legend-item"><svg viewBox="0 0 38 24" aria-hidden="true"><path d="M5 12 H27" class="pr-run" style="stroke-width:3;stroke-dasharray:5 4"/><path d="M26 7 L34 12 L26 17 Z" class="pr-ah-run"/></svg><span>Löpning</span></div>
+                        <div class="legend-item"><svg viewBox="0 0 38 24" aria-hidden="true"><path d="M6 12 L34 3 L34 21 Z" class="pr-cone" style="opacity:.5"/></svg><span>Stängd passningsväg</span></div>
+                        <div class="zone-hint">Piltangenterna bläddrar, mellanslag spelar/pausar.</div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /tab-press -->
+
+
         <div class="tab-panel" id="tab-uppspel">
             <p class="film-intro">
-                Här ser du hela vårt uppspel som en film &ndash; från målvakten till avslut, byggt på bilderna i Word-dokumentet.
-                Spelet stannar till vid varje station och visar passningsalternativen med pilar.
+                Här ser du hela vårt uppspel i 2-3-1 som en film &ndash; från målvakten till avslut.
+                Spelet stannar till vid varje station och visar passningsalternativen med pilar. I steg 2 läser vi av motståndarna: är yttrarna fria spelar vi ut på kanten, stänger de yttrarna spelar vi in i mitten till IM eller FW som möter.
                 Gult lag = vi, rött lag = motståndare. Vi spelar uppåt i planen.
             </p>
+
+            <div class="film-scen">
+                <span>Vad gör motståndarna?</span>
+                <div class="pr-side" role="group" aria-label="Välj scenario">
+                    <button type="button" data-scen="kant" aria-pressed="true" onclick="setFilmScenario('kant')">Yttrarna fria → kanten</button>
+                    <button type="button" data-scen="mitt" aria-pressed="false" onclick="setFilmScenario('mitt')">Yttrarna stängda → mitten</button>
+                </div>
+            </div>
 
             <div class="progress-dots" id="u-dots"></div>
 
@@ -946,12 +1314,12 @@
                         <div class="player opponent" id="u-r6"></div>
                         <div class="player opponent" id="u-r7"></div>
 
-                        <!-- Vårt lag (gult): målvakt + utespelare med roller -->
+                        <!-- Vårt lag (gult), 2-3-1: Y1 = vänster MB, Y4 = höger MB -->
                         <div class="player goalkeeper" id="u-GK">MV</div>
-                        <div class="player" id="u-Y1">MB</div>
+                        <div class="player" id="u-Y1" title="Vänster mittback">MB</div>
                         <div class="player" id="u-Y2">HY</div>
                         <div class="player" id="u-Y3">VY</div>
-                        <div class="player" id="u-Y4">DM</div>
+                        <div class="player" id="u-Y4" title="Höger mittback">MB</div>
                         <div class="player" id="u-Y5">IM</div>
                         <div class="player" id="u-Y6">FW</div>
 
@@ -979,6 +1347,13 @@
                     <div class="step-box">
                         <h3 id="u-title">Steg 1</h3>
                         <p class="step-text" id="u-text"></p>
+                        <div class="film-choice" id="u-choice" hidden>
+                            <span>Välj:</span>
+                            <div class="pr-side" role="group" aria-label="Välj väg">
+                                <button type="button" data-scen="kant" aria-pressed="true" onclick="setFilmScenario('kant')">Fria → kanten</button>
+                                <button type="button" data-scen="mitt" aria-pressed="false" onclick="setFilmScenario('mitt')">Stängda → mitten</button>
+                            </div>
+                        </div>
                         <ul class="option-list" id="u-options"></ul>
                     </div>
 
@@ -1000,6 +1375,36 @@
                 </div>
             </div>
         </div><!-- /tab-uppspel -->
+
+        <div class="tab-panel" id="tab-ovningar">
+            <div class="ovning">
+                <h3>Träning v 43–45: Spela in i mitten</h3>
+                <h4 class="ovning-rubrik">Upplägg</h4>
+                <ol class="ovning-lista">
+                    <li>Sirius</li>
+                    <li>Löpskolning</li>
+                    <li>Fys</li>
+                    <li>Southampton (bollkontroll)</li>
+                    <li>
+                        1v1 → 2v2
+                        <div class="video-wrap">
+                            <iframe id="ovning-video-1"
+                                src="https://www.youtube-nocookie.com/embed/Cq5J5BC73tY?start=246&end=276&rel=0&mute=1"
+                                title="1v1 → 2v2 (4:06–4:36)"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen></iframe>
+                        </div>
+                        <p class="film-intro" style="margin-top:10px;">
+                            Går klippet inte att spela?
+                            <a href="https://www.youtube.com/watch?v=Cq5J5BC73tY&t=246s" target="_blank" rel="noopener" style="color:#FFD700;">Öppna på YouTube från 4:06</a>
+                        </p>
+                    </li>
+                    <li>Match med Joker i mitten</li>
+                </ol>
+            </div>
+        </div><!-- /tab-ovningar -->
+
     </div>
 
     <script>
@@ -1007,6 +1412,7 @@
         let currentZone = 'center';
         let selectedPlayer = null;
 
+        // Spelsystem 2-3-1: två mittbackar (VMB, HMB), tre mittfältare (VY, IM, HY), en forward.
         const playerData = {
             MV: {
                 name: 'Målvakt',
@@ -1016,27 +1422,27 @@
                     description: 'Startar uppspelet och spelar ut bollen via kanterna. Går ut långt mot bollsidan för att vara ett alternativ och göra sig spelbar.'
                 },
                 defense: {
-                    description: 'Sista försvarslinjen. Vågar ligga högt upp för att fånga upp långbollar. Kommunicerar och styr positioneringen.'
+                    description: 'Sista försvarslinjen. Vågar ligga högt bakom mittbackarna för att fånga upp långbollar. Kommunicerar och styr positioneringen.'
                 }
             },
-            MB: {
-                name: 'Mittback',
+            VMB: {
+                name: 'Vänster mittback',
                 roleText: 'Mittback',
                 attack: {
-                    description: 'Fördelar bollen och styr uppspelet via kanterna. Följer upp för att inte skapa för stora luckor.'
+                    description: 'Går isär från den andra mittbacken så att målvakten alltid har ett kort pass. Spelar vidare ut till VY på kanten eller in till IM. När bollen är på andra sidan glider du in mot mitten och säkrar.'
                 },
                 defense: {
-                    description: 'Går upp och jobbar ihop med DM som ett centralt par. Skiftar mot bollsidan tillsammans.'
+                    description: 'Bollen på din sida: gå ut på kanten och ta motståndarnas ytter. Bollen på andra sidan: flytta över och stå nära linjen mot korridoren där bollen är, på rätt sida om anfallaren.'
                 }
             },
-            DM: {
-                name: 'Defensiv mitt',
-                roleText: 'Defensiv mitt',
+            HMB: {
+                name: 'Höger mittback',
+                roleText: 'Mittback',
                 attack: {
-                    description: 'Tar emot bollen och kan bredda spelet ut till kanterna men också hitta bollar i djupet.'
+                    description: 'Går isär från den andra mittbacken så att målvakten alltid har ett kort pass. Spelar vidare ut till HY på kanten eller in till IM. När bollen är på andra sidan glider du in mot mitten och säkrar.'
                 },
                 defense: {
-                    description: 'Kommer ner och jobbar ihop med MB som ett centralt par. Skiftar mot bollsidan tillsammans.'
+                    description: 'Bollen på din sida: gå ut på kanten och ta motståndarnas ytter. Bollen på andra sidan: flytta över och stå nära linjen mot korridoren där bollen är, på rätt sida om anfallaren.'
                 }
             },
             VY: {
@@ -1046,17 +1452,17 @@
                     description: 'Tar emot bollen på vänsterkanten - speluppbyggnad går oftast via kanterna! När bollen är på andra sidan håller VY sin kant för att bredda spelet.'
                 },
                 defense: {
-                    description: 'När bollen är på vänstersidan: pressar framifrån! När bollen är på högersidan: kommer in i banan och hjälper till centralt.'
+                    description: 'Bollen till vänster: gå upp och pressa bollhållaren. Löp i en båge så att du stänger passet längs kanten. Bollen till höger: gå in i mittkorridoren och ställ dig på rätt sida om närmaste motståndare.'
                 }
             },
             IM: {
                 name: 'Innermittfältare',
                 roleText: 'Innermittfältare',
                 attack: {
-                    description: 'Möter upp bollen och gör sig spelbar. I mitten står IM på motsatt sida från FW så båda är spelbara.'
+                    description: 'Står centralt strax framför mittbackarna och gör sig spelbar direkt i uppspelet. Vänd upp och spela ut till kanterna eller hitta FW i djupet.'
                 },
                 defense: {
-                    description: 'Hjälper till i pressen och stänger passningsvägar. Jobbar för att återerövra bollen.'
+                    description: 'När passet går ut till kanten kliver IM upp och äger ytan i mitten. Då blir passet in i planen svårt.'
                 }
             },
             HY: {
@@ -1066,85 +1472,84 @@
                     description: 'Tar emot bollen på högerkanten - speluppbyggnad går oftast via kanterna! När bollen är på andra sidan håller HY sin kant för att bredda spelet.'
                 },
                 defense: {
-                    description: 'När bollen är på högersidan: pressar framifrån! När bollen är på vänstersidan: kommer in i banan och hjälper till centralt.'
+                    description: 'Bollen till höger: gå upp och pressa bollhållaren. Löp i en båge så att du stänger passet längs kanten. Bollen till vänster: gå in i mittkorridoren och ställ dig på rätt sida om närmaste motståndare.'
                 }
             },
             FW: {
                 name: 'Forward',
                 roleText: 'Forward',
                 attack: {
-                    description: 'Rör sig mot bollsidan och gör sig spelbar. I mitten står FW på motsatt sida från IM (men högre upp) så båda är spelbara.'
+                    description: 'Rör sig mot bollsidan och gör sig spelbar. Står högt så att IM och FW är spelbara på olika höjd.'
                 },
                 defense: {
-                    description: 'Väntar med press tills bollen går till kanten. Pressar då från sidan för att täcka tillbakaspel och stänga passningsvägen centralt. Får inte sjunka ner för djupt – ska vara tillgänglig vid bollerövringar.'
+                    description: 'Väntar centralt tills passet går ut till kanten. Löper då mot bollen i en vinkel som tar bort passet till den andra backen. Får inte sjunka ner för djupt – ska vara tillgänglig vid bollerövringar.'
                 }
             }
         };
 
-        // ATTACK: MV goes out EVEN MORE on wing
         const zonePositions = {
             attack: {
                 left: {
-                    // Ball at VY - MV goes out far to left
-                    MV: { x: 30, y: 88 },   // Goes out FAR to left
-                    MB: { x: 40, y: 72 },
-                    DM: { x: 38, y: 58 },
-                    VY: { x: 15, y: 58 },   // Has ball
-                    IM: { x: 38, y: 45 },
-                    HY: { x: 88, y: 52 },   // Stays wide right
-                    FW: { x: 35, y: 28 }    // More towards left
+                    // Bollen hos VY - MV och backlinjen skiftar mot vänster
+                    MV: { x: 34, y: 87 },
+                    VMB: { x: 18, y: 68 },
+                    HMB: { x: 50, y: 75 },
+                    VY: { x: 13, y: 56 },   // Har bollen
+                    IM: { x: 36, y: 54 },
+                    HY: { x: 86, y: 50 },   // Håller bredd till höger
+                    FW: { x: 36, y: 30 }
                 },
                 center: {
-                    // Ball at DM - FW and IM on opposite sides
-                    MV: { x: 52, y: 88 },
-                    MB: { x: 50, y: 74 },
-                    DM: { x: 50, y: 60 },   // Has the ball
-                    VY: { x: 15, y: 52 },   // Wide left
-                    IM: { x: 35, y: 42 },   // LEFT side
-                    HY: { x: 85, y: 52 },   // Wide right
-                    FW: { x: 65, y: 30 }    // RIGHT side, higher up
+                    // Bollen hos IM centralt
+                    MV: { x: 50, y: 88 },
+                    VMB: { x: 28, y: 75 },
+                    HMB: { x: 72, y: 75 },
+                    VY: { x: 13, y: 52 },
+                    IM: { x: 50, y: 58 },   // Har bollen
+                    HY: { x: 87, y: 52 },
+                    FW: { x: 56, y: 30 }
                 },
                 right: {
-                    // Ball at HY - MV goes out far to right
-                    MV: { x: 70, y: 88 },   // Goes out FAR to right
-                    MB: { x: 60, y: 72 },
-                    DM: { x: 62, y: 58 },
-                    VY: { x: 12, y: 52 },   // Stays wide left
-                    IM: { x: 62, y: 45 },
-                    HY: { x: 85, y: 58 },   // Has ball
-                    FW: { x: 68, y: 28 }    // More towards right
+                    // Bollen hos HY - MV och backlinjen skiftar mot höger
+                    MV: { x: 66, y: 87 },
+                    VMB: { x: 50, y: 75 },
+                    HMB: { x: 82, y: 68 },
+                    VY: { x: 14, y: 50 },   // Håller bredd till vänster
+                    IM: { x: 64, y: 54 },
+                    HY: { x: 87, y: 56 },   // Har bollen
+                    FW: { x: 64, y: 30 }
                 }
             },
             defense: {
                 left: {
-                    // Ball on left - per PDF "Boll vänster"
-                    MV: { x: 40, y: 82 },
-                    MB: { x: 48, y: 62 },   // B - right side of central pair
-                    DM: { x: 30, y: 62 },   // C - left side of central pair
-                    VY: { x: 15, y: 43 },   // V - wide left, midfield
-                    IM: { x: 35, y: 48 },   // O - central-left
-                    HY: { x: 55, y: 47 },   // H - central-right, tucked in
-                    FW: { x: 35, y: 30 }    // F - near ball, pressing from side
+                    // Passet har gått till deras back på vår vänsterkant - pressen är igång
+                    MV: { x: 38, y: 80 },
+                    VMB: { x: 11, y: 48 },  // Tar deras ytter på kanten
+                    HMB: { x: 36, y: 55 },  // Flyttar över, rätt sida om anfallaren
+                    VY: { x: 15, y: 30 },   // Pressar bollhållaren
+                    IM: { x: 35, y: 34 },   // Äger ytan i mitten
+                    HY: { x: 58, y: 40 },   // In i mittkorridoren
+                    FW: { x: 36, y: 19 }    // Stänger passet till andra backen
                 },
                 center: {
-                    // Ball in center - per PDF "Boll i mitten försvar"
-                    MV: { x: 48, y: 80 },
-                    MB: { x: 56, y: 58 },   // B - symmetric with DM
-                    DM: { x: 44, y: 58 },   // C - symmetric with MB
-                    VY: { x: 20, y: 46 },   // V - symmetric with HY
-                    IM: { x: 50, y: 45 },   // O - central, at circle
-                    HY: { x: 80, y: 46 },   // H - symmetric with VY
-                    FW: { x: 45, y: 38 }    // F - central, behind ball
+                    // Utgångsläge - kompakt i mittkorridoren, mitten stängd
+                    MV: { x: 50, y: 80 },
+                    VMB: { x: 38, y: 54 },
+                    HMB: { x: 62, y: 54 },
+                    VY: { x: 27, y: 38 },
+                    IM: { x: 50, y: 42 },
+                    HY: { x: 73, y: 38 },
+                    FW: { x: 50, y: 27 }
                 },
                 right: {
-                    // Ball on right - MB goes out like DM does in left
-                    MV: { x: 60, y: 82 },
-                    MB: { x: 70, y: 62 },   // B - out toward right (mirrors DM x:30 in left)
-                    DM: { x: 52, y: 62 },   // C - stays left of MB (mirrors MB x:48 in left)
-                    VY: { x: 45, y: 47 },   // V - tucked in centrally
-                    IM: { x: 65, y: 48 },   // O - central-right
-                    HY: { x: 85, y: 43 },   // H - wide right, midfield
-                    FW: { x: 65, y: 30 }    // F - near ball, pressing from side
+                    // Spegelvänt: passet till deras back på vår högerkant
+                    MV: { x: 62, y: 80 },
+                    VMB: { x: 64, y: 55 },
+                    HMB: { x: 89, y: 48 },
+                    VY: { x: 42, y: 40 },
+                    IM: { x: 65, y: 34 },
+                    HY: { x: 85, y: 30 },
+                    FW: { x: 64, y: 19 }
                 }
             }
         };
@@ -1152,14 +1557,75 @@
         // Ball positions - offset from player so ball is visible in front
         const ballPositions = {
             attack: {
-                left: { x: 10, y: 52 },     // In front of VY
-                center: { x: 44, y: 55 },   // In front of DM
-                right: { x: 90, y: 52 }     // In front of HY
+                left: { x: 10, y: 52 },     // Framför VY
+                center: { x: 50, y: 53 },   // Framför IM
+                right: { x: 90, y: 52 }     // Framför HY
             },
             defense: {
-                left: { x: 20, y: 25 },
-                center: { x: 50, y: 25 },
-                right: { x: 80, y: 25 }
+                left: { x: 20, y: 21 },     // Hos deras back till vänster
+                center: { x: 50, y: 11 },   // Hos deras målvakt
+                right: { x: 80, y: 21 }     // Hos deras back till höger
+            }
+        };
+
+        // "Just nu"-rutan per läge, bollzon och spelare
+        const contextTexts = {
+            attack: {
+                left: {
+                    MV: ['↔️', 'MV går ut långt mot vänster för att vara spelbar!'],
+                    VMB: ['🔄', 'VMB är närmaste stöd bakom VY - spelbar för ett pass bakåt!'],
+                    HMB: ['🛡️', 'HMB glider in mot mitten och säkrar bakom!'],
+                    VY: ['⚽', 'VY har bollen - speluppbyggnad via vänsterkanten!'],
+                    IM: ['🔄', 'IM möter upp bollen mot bollsidan!'],
+                    HY: ['↔️', 'HY håller sin kant för att bredda spelet!'],
+                    FW: ['🔄', 'FW rör sig mot vänster (bollsidan) - gör sig spelbar!']
+                },
+                center: {
+                    VMB: ['↔️', 'Mittbackarna står isär - båda är spelbara för MV!'],
+                    HMB: ['↔️', 'Mittbackarna står isär - båda är spelbara för MV!'],
+                    VY: ['↔️', 'VY håller bredd - redo att ta emot på kanten!'],
+                    IM: ['⚽', 'IM har bollen - redo att spela ut till kanterna eller i djupet!'],
+                    HY: ['↔️', 'HY håller bredd - redo att ta emot på kanten!'],
+                    FW: ['↔️', 'FW står högt - IM och FW är spelbara på olika höjd!']
+                },
+                right: {
+                    MV: ['↔️', 'MV går ut långt mot höger för att vara spelbar!'],
+                    VMB: ['🛡️', 'VMB glider in mot mitten och säkrar bakom!'],
+                    HMB: ['🔄', 'HMB är närmaste stöd bakom HY - spelbar för ett pass bakåt!'],
+                    VY: ['↔️', 'VY håller sin kant för att bredda spelet!'],
+                    IM: ['🔄', 'IM möter upp bollen mot bollsidan!'],
+                    HY: ['⚽', 'HY har bollen - speluppbyggnad via högerkanten!'],
+                    FW: ['🔄', 'FW rör sig mot höger (bollsidan) - gör sig spelbar!']
+                }
+            },
+            defense: {
+                left: {
+                    MV: ['👀', 'MV kliver upp bakom backlinjen och styr!'],
+                    VMB: ['⚡', 'VMB går ut på kanten och tar deras ytter!'],
+                    HMB: ['↔️', 'HMB flyttar över - rätt sida om anfallaren!'],
+                    VY: ['⚡', 'VY pressar bollhållaren och stänger passet längs kanten!'],
+                    IM: ['⚡', 'IM kliver upp och stänger passet in i planen!'],
+                    HY: ['↔️', 'HY går in i mittkorridoren - rätt sida om närmaste motståndare!'],
+                    FW: ['⚡', 'FW löper i vinkel och stänger passet till andra backen!']
+                },
+                center: {
+                    MV: ['👀', 'MV kommunicerar och styr försvarets positionering!'],
+                    VMB: ['🛡️', 'Mittbackarna står tätt ihop - mitten är stängd!'],
+                    HMB: ['🛡️', 'Mittbackarna står tätt ihop - mitten är stängd!'],
+                    VY: ['👀', 'VY står på linjen till mittkorridoren - redo att pressa!'],
+                    IM: ['🛡️', 'IM stänger mitten - motståndarna måste spela ut till kanten!'],
+                    HY: ['👀', 'HY står på linjen till mittkorridoren - redo att pressa!'],
+                    FW: ['👀', 'FW väntar - pressen startar när passet går till kanten!']
+                },
+                right: {
+                    MV: ['👀', 'MV kliver upp bakom backlinjen och styr!'],
+                    VMB: ['↔️', 'VMB flyttar över - rätt sida om anfallaren!'],
+                    HMB: ['⚡', 'HMB går ut på kanten och tar deras ytter!'],
+                    VY: ['↔️', 'VY går in i mittkorridoren - rätt sida om närmaste motståndare!'],
+                    IM: ['⚡', 'IM kliver upp och stänger passet in i planen!'],
+                    HY: ['⚡', 'HY pressar bollhållaren och stänger passet längs kanten!'],
+                    FW: ['⚡', 'FW löper i vinkel och stänger passet till andra backen!']
+                }
             }
         };
 
@@ -1227,93 +1693,11 @@
             panel.classList.remove('empty');
             
             let contextHtml = '';
-            
-            if (currentMode === 'attack') {
-                if (playerId === 'VY' && currentZone === 'left') {
-                    contextHtml = '<div class="context-info"><strong>⚽ Just nu:</strong> VY har bollen - speluppbyggnad via vänsterkanten!</div>';
-                } else if (playerId === 'HY' && currentZone === 'right') {
-                    contextHtml = '<div class="context-info"><strong>⚽ Just nu:</strong> HY har bollen - speluppbyggnad via högerkanten!</div>';
-                } else if (playerId === 'DM' && currentZone === 'center') {
-                    contextHtml = '<div class="context-info"><strong>⚽ Just nu:</strong> DM har bollen - redo att spela ut till kanterna!</div>';
-                }
-                else if (playerId === 'MV') {
-                    if (currentZone === 'left') {
-                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> MV går ut långt mot vänster för att vara spelbar!</div>';
-                    } else if (currentZone === 'right') {
-                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> MV går ut långt mot höger för att vara spelbar!</div>';
-                    }
-                }
-                else if (playerId === 'FW') {
-                    if (currentZone === 'center') {
-                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> FW står på motsatt sida från IM (högre upp) - båda är spelbara!</div>';
-                    } else {
-                        const side = currentZone === 'left' ? 'vänster' : 'höger';
-                        contextHtml = `<div class="context-info"><strong>🔄 Just nu:</strong> FW rör sig mot ${side} (bollsidan) - gör sig spelbar!</div>`;
-                    }
-                }
-                else if (playerId === 'IM') {
-                    if (currentZone === 'center') {
-                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> IM står på motsatt sida från FW - båda är spelbara!</div>';
-                    } else {
-                        contextHtml = '<div class="context-info"><strong>🔄 Just nu:</strong> IM möter upp bollen mot bollsidan!</div>';
-                    }
-                }
-                else if (playerId === 'HY' && currentZone === 'left') {
-                    contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> HY håller sin kant för att bredda spelet!</div>';
-                } else if (playerId === 'VY' && currentZone === 'right') {
-                    contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> VY håller sin kant för att bredda spelet!</div>';
-                }
-                else if (playerId === 'MB' && currentZone !== 'center') {
-                    const side = currentZone === 'left' ? 'vänster' : 'höger';
-                    contextHtml = `<div class="context-info"><strong>↔️ Just nu:</strong> MB följer med mot ${side} i uppspelet!</div>`;
-                }
-                else if (playerId === 'DM' && currentZone !== 'center') {
-                    contextHtml = '<div class="context-info"><strong>🔄 Just nu:</strong> DM stödjer uppspelet och är spelbar!</div>';
-                }
-            } else {
-                if (playerId === 'VY') {
-                    if (currentZone === 'left') {
-                        contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> VY pressar framifrån - bollen är på vänstersidan!</div>';
-                    } else if (currentZone === 'right') {
-                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> VY kommer in i banan och hjälper till centralt!</div>';
-                    } else {
-                        contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> VY håller kompakt - redo att pressa eller komma in i banan!</div>';
-                    }
-                } else if (playerId === 'HY') {
-                    if (currentZone === 'right') {
-                        contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> HY pressar framifrån - bollen är på högersidan!</div>';
-                    } else if (currentZone === 'left') {
-                        contextHtml = '<div class="context-info"><strong>↔️ Just nu:</strong> HY kommer in i banan och hjälper till centralt!</div>';
-                    } else {
-                        contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> HY håller kompakt - redo att pressa eller komma in i banan!</div>';
-                    }
-                } else if (playerId === 'FW') {
-                    if (currentZone === 'center') {
-                        contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> FW väntar - redo att pressa från sidan när bollen går till kant!</div>';
-                    } else {
-                        contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> FW pressar från sidan - täcker tillbakaspel och stänger centralt!</div>';
-                    }
-                } else if (playerId === 'MB') {
-                    if (currentZone !== 'center') {
-                        const side = currentZone === 'left' ? 'vänster' : 'höger';
-                        contextHtml = `<div class="context-info"><strong>↔️ Just nu:</strong> MB jobbar ihop med DM - skiftar mot ${side} tillsammans!</div>`;
-                    } else {
-                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> MB jobbar ihop med DM som ett centralt par!</div>';
-                    }
-                } else if (playerId === 'DM') {
-                    if (currentZone !== 'center') {
-                        const side = currentZone === 'left' ? 'vänster' : 'höger';
-                        contextHtml = `<div class="context-info"><strong>↔️ Just nu:</strong> DM jobbar ihop med MB - skiftar mot ${side} tillsammans!</div>`;
-                    } else {
-                        contextHtml = '<div class="context-info"><strong>🛡️ Just nu:</strong> DM jobbar ihop med MB som ett centralt par!</div>';
-                    }
-                } else if (playerId === 'IM') {
-                    contextHtml = '<div class="context-info"><strong>⚡ Just nu:</strong> IM hjälper till i pressen och stänger passningsvägar!</div>';
-                } else if (playerId === 'MV') {
-                    contextHtml = '<div class="context-info"><strong>👀 Just nu:</strong> MV kommunicerar och styr försvarets positionering!</div>';
-                }
+            const ctx = contextTexts[currentMode][currentZone][playerId];
+            if (ctx) {
+                contextHtml = `<div class="context-info"><strong>${ctx[0]} Just nu:</strong> ${ctx[1]}</div>`;
             }
-            
+
             const roleClass = data.isGoalkeeper ? 'role goalkeeper' : 'role';
             
             panel.innerHTML = `
@@ -1358,88 +1742,420 @@
             } else {
                 filmPause();
             }
+            if (name !== 'ovningar') {
+                // Stoppa klippet genom att ladda om spelaren
+                document.querySelectorAll('#tab-ovningar iframe').forEach(f => { f.src = f.src; });
+            }
+            if (name === 'press') {
+                press.show();
+            } else {
+                press.pause();
+            }
         }
+
+        /* ============================================================
+           PRESS - steg för steg
+           ============================================================ */
+        const press = (function () {
+            const RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // Våra spelare: start, böjpunkt, slut (koordinater för pass åt vänster i bild).
+            // l = etikett vid pass vänster, lm = etikett när bilden spegelvänds.
+            const PL = [
+                { k: 'W',  l: 'VY', lm: 'HY', s: [280, 552], c: [176, 540], e: [185, 447] },
+                { k: 'F',  l: 'FW', lm: 'FW', s: [447, 437], c: [440, 338], e: [350, 338] },
+                { k: 'IM', l: 'IM', lm: 'IM', s: [462, 585], c: [415, 515], e: [352, 462] },
+                { k: 'FY', l: 'HY', lm: 'VY', s: [696, 552], c: [626, 552], e: [556, 566] },
+                { k: 'D1', l: 'MB', lm: 'MB', s: [305, 711], c: [225, 700], e: [152, 662] },
+                { k: 'D2', l: 'MB', lm: 'MB', s: [515, 698], c: [450, 748], e: [368, 742] }
+            ];
+            const OPP = { gk: [488, 212], lb: [215, 322], rb: [761, 322], cm: [495, 447], lw: [138, 553], rw: [838, 553], fw: [478, 675] };
+            const B0 = [466, 246], B1 = [226, 354];
+
+            // {W} = yttern på bollsidan, {FY} = yttern på bortre sidan
+            const STEPS = [
+                { t: 'Utgångsläge', d: 'Deras målvakt har bollen. Vi står samlade i mittkorridoren, yttrarna på linjen till korridoren. Mitten är stängd, så de måste passa ut till en back. Ingen pressar målvakten.', p: [0,0,0,0,0,0], b: 0, pre: ['corridor'], post: [], hl: [] },
+                { t: 'Passet går ut till kanten', d: 'Det är vår signal! När bollen är på väg ut till deras back går hela laget i press samtidigt.', p: [0,0,0,0,0,0], b: 1, pre: ['pass'], post: [], hl: [] },
+                { t: '{W} pressar bollhållaren', d: 'Yttern på bollsidan går upp mot bollen. Löp i en båge så att du stänger passet längs kanten.', p: [1,0,0,0,0,0], b: 1, pre: ['W-run'], post: ['W-block'], hl: [0] },
+                { t: 'FW stänger andra backen', d: 'Löp mot bollen, men i en vinkel som tar bort passet tillbaka till den andra backen.', p: [1,1,0,0,0,0], b: 1, pre: ['F-run'], post: ['F-block'], hl: [1] },
+                { t: 'IM äger mitten', d: 'Kliv upp och ta ytan i mitten. Då blir passet in i planen svårt.', p: [1,1,1,0,0,0], b: 1, pre: ['IM-run'], post: ['IM-zone'], hl: [2] },
+                { t: '{FY} går in i korridoren', d: 'Yttern på bortre sidan går in i mittkorridoren och ställer sig på rätt sida om närmaste motståndare – alltså mellan motståndaren och vårt mål.', p: [1,1,1,1,0,0], b: 1, pre: ['FY-run', 'corridor'], post: [], hl: [3] },
+                { t: 'MB på bollsidan går ut', d: 'Mittbacken på bollsidan går ut på kanten och tar deras ytter.', p: [1,1,1,1,1,0], b: 1, pre: ['D1-run'], post: ['D1-mark'], hl: [4] },
+                { t: 'Andra MB flyttar över', d: 'Den andra mittbacken flyttar över och står nära linjen mot korridoren där bollen är, på rätt sida om deras anfallare.', p: [1,1,1,1,1,1], b: 1, pre: ['D2-run'], post: ['D2-mark'], hl: [5] },
+                { t: 'Hela pressen', d: 'Alla flyttar samtidigt när passet slås. Bollhållaren har kanten, mitten och den andra backen stängda – nu vinner vi bollen!', all: true, p: [1,1,1,1,1,1], b: 1, pre: [], post: [], hl: [] }
+            ];
+            const N = STEPS.length, Z = [0,0,0,0,0,0], ONE = [1,1,1,1,1,1];
+            const RUNS = PL.map(p => p.k + '-run');
+            const POSTS = ['W-block', 'F-block', 'IM-zone', 'D1-mark', 'D2-mark'];
+
+            let cur = { p: Z.slice(), b: 0 }, step = 0, token = 0, playing = false, mirrored = false, started = false, ovState = { corridor: 'on' };
+            const dyn = document.getElementById('pr-dyn');
+            const els = {};
+
+            const M = x => mirrored ? 976 - x : x;
+            const r1 = v => Math.round(v * 10) / 10;
+            const pt = q => r1(M(q[0])) + ' ' + r1(q[1]);
+            const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
+            const along = (a, b, d) => { const L = dist(a, b); return [a[0] + (b[0] - a[0]) * d / L, a[1] + (b[1] - a[1]) * d / L]; };
+            function bez(pl, t) { const u = 1 - t; return [u*u*pl.s[0] + 2*u*t*pl.c[0] + t*t*pl.e[0], u*u*pl.s[1] + 2*u*t*pl.c[1] + t*t*pl.e[1]]; }
+            function label(i) { return mirrored ? PL[i].lm : PL[i].l; }
+            function fill(s) { return s.replace('{W}', label(0)).replace('{FY}', label(3)); }
+
+            function runPath(pl) {
+                const pts = [];
+                for (let k = 0; k <= 40; k++) { const q = bez(pl, k / 40); if (dist(q, pl.s) < 25) continue; if (dist(q, pl.e) < 36) break; pts.push(q); }
+                return 'M' + pts.map(pt).join(' L');
+            }
+            function cone(B, P, r, L) {
+                const dx = P[0] - B[0], dy = P[1] - B[1], d = Math.hypot(dx, dy), nx = -dy / d * r, ny = dx / d * r, k = L / d;
+                const a = [P[0] + nx, P[1] + ny], b = [P[0] - nx, P[1] - ny];
+                const a2 = [B[0] + (a[0] - B[0]) * k, B[1] + (a[1] - B[1]) * k], b2 = [B[0] + (b[0] - B[0]) * k, B[1] + (b[1] - B[1]) * k];
+                return [a, a2, b2, b].map(pt).join(' ');
+            }
+            function block(P, target) {
+                const d = dist(B1, P), s = along(B1, P, d - 34), dx = (P[0] - B1[0]) / d, dy = (P[1] - B1[1]) / d;
+                const s1 = [s[0] - dy * 15, s[1] + dx * 15], s2 = [s[0] + dy * 15, s[1] - dx * 15];
+                return '<polygon class="pr-cone" points="' + cone(B1, P, 22, dist(B1, target) + 48) + '"/>' +
+                       '<path class="pr-lane" d="M' + pt(along(B1, P, 22)) + ' L' + pt(s) + '"/>' +
+                       '<path class="pr-stop" d="M' + pt(s1) + ' L' + pt(s2) + '"/>';
+            }
+            function xmark(q) { const x = M(q[0]), y = q[1], s = 15; return '<path class="pr-x" d="M' + (x - s) + ' ' + (y - s) + ' L' + (x + s) + ' ' + (y + s) + ' M' + (x + s) + ' ' + (y - s) + ' L' + (x - s) + ' ' + (y + s) + '"/>'; }
+            function ov(id, inner) { return '<g class="pr-ov" data-ov="' + id + '">' + inner + '</g>'; }
+            function markLink(pl, target) {
+                return '<circle class="pr-mark" cx="' + M(target[0]) + '" cy="' + target[1] + '" r="31"/>' +
+                       '<path class="pr-mark" d="M' + pt(along(pl.e, target, 28)) + ' L' + pt(along(target, pl.e, 33)) + '"/>';
+            }
+
+            function build() {
+                let h = '';
+                h += ov('corridor', '<rect class="pr-corr" x="280" y="88" width="416" height="760"/><text class="pr-corr-label" x="488" y="822">MITTKORRIDOREN</text>');
+                h += ov('W-block', block(PL[0].e, OPP.lw));
+                h += ov('F-block', block(PL[1].e, OPP.rb));
+                h += ov('IM-zone', '<circle class="pr-zone" cx="' + M(PL[2].e[0]) + '" cy="' + PL[2].e[1] + '" r="82"/><path class="pr-lane" d="M' + pt(along(B1, OPP.cm, 24)) + ' L' + pt(along(OPP.cm, B1, 26)) + '"/>');
+                h += ov('D1-mark', markLink(PL[4], OPP.lw));
+                h += ov('D2-mark', markLink(PL[5], OPP.fw));
+                h += ov('pass', '<path class="pr-pass" marker-end="url(#pr-ahPass)" d="M' + pt(along(B0, B1, 18)) + ' L' + pt(along(B1, B0, 26)) + '"/><circle class="pr-ring" cx="' + M(OPP.lb[0]) + '" cy="' + OPP.lb[1] + '" r="31"/>');
+                PL.forEach(pl => {
+                    h += ov(pl.k + '-run', '<circle class="pr-ghost" cx="' + M(pl.s[0]) + '" cy="' + pl.s[1] + '" r="24"/><path class="pr-run" marker-end="url(#pr-ahRun)" d="' + runPath(pl) + '"/>');
+                });
+                Object.keys(OPP).forEach(k => { h += xmark(OPP[k]); });
+                PL.forEach((pl, i) => {
+                    h += '<g id="pr-pl' + i + '"><circle class="pr-halo" r="34"/><circle class="pr-disc" r="24"/><text class="pr-lbl" y="8" font-size="21">' + label(i) + '</text></g>';
+                });
+                h += '<circle id="pr-ball" class="pr-ball" r="11"/>';
+                dyn.innerHTML = h;
+                els.pl = PL.map((_, i) => document.getElementById('pr-pl' + i));
+                els.ball = document.getElementById('pr-ball');
+                els.ov = {};
+                dyn.querySelectorAll('[data-ov]').forEach(g => { els.ov[g.getAttribute('data-ov')] = g; });
+                setOv(ovState); draw(); markActive();
+            }
+
+            function draw() {
+                PL.forEach((pl, i) => { const q = bez(pl, cur.p[i]); els.pl[i].setAttribute('transform', 'translate(' + r1(M(q[0])) + ' ' + r1(q[1]) + ')'); });
+                const bx = B0[0] + (B1[0] - B0[0]) * cur.b, by = B0[1] + (B1[1] - B0[1]) * cur.b;
+                els.ball.setAttribute('cx', r1(M(bx))); els.ball.setAttribute('cy', r1(by));
+            }
+            function setOv(state) {
+                ovState = state;
+                Object.keys(els.ov).forEach(k => { els.ov[k].setAttribute('class', 'pr-ov' + (state[k] ? ' ' + state[k] : '')); });
+            }
+            function markActive() {
+                const hl = STEPS[step].hl;
+                els.pl.forEach((g, i) => { g.setAttribute('class', hl.indexOf(i) >= 0 ? 'pr-active' : ''); });
+            }
+
+            const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+            function tween(to, ms, tk) {
+                return new Promise(res => {
+                    if (RM || ms <= 0) { cur = { p: to.p.slice(), b: to.b }; draw(); return res(tk === token); }
+                    const from = { p: cur.p.slice(), b: cur.b }, t0 = performance.now();
+                    function f(now) {
+                        if (tk !== token) return res(false);
+                        const t = Math.min(1, (now - t0) / ms), e = ease(t);
+                        cur.p = from.p.map((v, i) => v + (to.p[i] - v) * e); cur.b = from.b + (to.b - from.b) * e; draw();
+                        if (t < 1) requestAnimationFrame(f); else res(true);
+                    }
+                    requestAnimationFrame(f);
+                });
+            }
+            function wait(ms, tk) { return new Promise(res => { setTimeout(() => res(tk === token), RM ? Math.min(ms, 1) : ms); }); }
+
+            // UI
+            const list = document.getElementById('pr-steps');
+            const btnPrev = document.getElementById('pr-prev'), btnNext = document.getElementById('pr-next'), btnPlay = document.getElementById('pr-play');
+            function renderList() {
+                list.innerHTML = '';
+                STEPS.forEach((s, i) => {
+                    const li = document.createElement('li'), b = document.createElement('button');
+                    b.type = 'button';
+                    b.innerHTML = '<span class="opt-num">' + (i + 1) + '</span><span>' + fill(s.t) + '</span>';
+                    b.addEventListener('click', () => { playing = false; run(i); });
+                    li.appendChild(b); list.appendChild(li);
+                });
+            }
+            function renderUI() {
+                const s = STEPS[step];
+                document.getElementById('pr-count').textContent = 'Steg ' + (step + 1) + ' av ' + N;
+                document.getElementById('pr-stepTitle').textContent = fill(s.t);
+                document.getElementById('pr-stepText').textContent = fill(s.d);
+                list.querySelectorAll('button').forEach((b, i) => { if (i === step) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current'); });
+                btnPrev.disabled = step === 0; btnNext.disabled = step === N - 1;
+                btnPlay.textContent = playing ? '⏸ Pausa' : '▶ Spela upp';
+                markActive();
+            }
+
+            async function run(i) {
+                const tk = ++token; step = i; renderUI();
+                const s = STEPS[i];
+                let o = {};
+                if (s.all) {
+                    setOv({});
+                    if (!(await tween({ p: Z, b: 0 }, 400, tk))) return;
+                    if (!(await wait(500, tk))) return;
+                    setOv({ pass: 'on' });
+                    if (!(await tween({ p: Z, b: 1 }, 650, tk))) return;
+                    o = { pass: 'dim' }; RUNS.forEach(k => { o[k] = 'on'; }); setOv(o);
+                    if (!(await tween({ p: ONE, b: 1 }, 1500, tk))) return;
+                    o = {}; RUNS.forEach(k => { o[k] = 'dim'; }); POSTS.forEach(k => { o[k] = 'on'; }); setOv(o);
+                } else {
+                    for (let j = 2; j < i; j++) STEPS[j].post.forEach(k => { o[k] = 'dim'; });
+                    s.pre.forEach(k => { o[k] = 'on'; }); setOv(o);
+                    const moves = s.p.some((v, j) => Math.abs(v - cur.p[j]) > .01);
+                    if (moves && i >= 2) { if (!(await wait(650, tk))) return; }
+                    if (!(await tween({ p: s.p, b: s.b }, moves ? 1050 : 650, tk))) return;
+                    o = Object.assign({}, o); s.post.forEach(k => { o[k] = 'on'; }); setOv(o);
+                }
+                renderUI();
+                if (playing) {
+                    if (!(await wait(Math.min(7500, 1300 + 40 * s.d.length), tk))) return;
+                    if (playing) run((i + 1) % N);
+                }
+            }
+
+            btnPrev.addEventListener('click', () => { playing = false; if (step > 0) run(step - 1); });
+            btnNext.addEventListener('click', () => { playing = false; if (step < N - 1) run(step + 1); });
+            btnPlay.addEventListener('click', () => {
+                playing = !playing;
+                if (playing) run((step + 1) % N); else renderUI();
+            });
+            function setSide(m) {
+                mirrored = m;
+                document.getElementById('pr-sideL').setAttribute('aria-pressed', String(!m));
+                document.getElementById('pr-sideR').setAttribute('aria-pressed', String(m));
+                build(); renderList(); renderUI();
+            }
+            document.getElementById('pr-sideL').addEventListener('click', () => setSide(false));
+            document.getElementById('pr-sideR').addEventListener('click', () => setSide(true));
+            document.addEventListener('keydown', e => {
+                if (!document.getElementById('tab-press').classList.contains('active')) return;
+                if (e.target && /^(BUTTON|INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+                if (e.key === 'ArrowRight') { btnNext.click(); e.preventDefault(); }
+                else if (e.key === 'ArrowLeft') { btnPrev.click(); e.preventDefault(); }
+                else if (e.key === ' ') { btnPlay.click(); e.preventDefault(); }
+            });
+
+            build(); renderList(); renderUI();
+
+            return {
+                // Första gången fliken öppnas spelas pressen upp automatiskt
+                show() { if (!started) { started = true; playing = !RM; run(0); } },
+                pause() { if (playing) { playing = false; renderUI(); } }
+            };
+        })();
 
         /* ============================================================
            UPPSPEL - FILM
            ============================================================ */
         const SVG_NS = 'http://www.w3.org/2000/svg';
 
-        // Varje steg bygger på en bild i bilder.docx. Spelarpositioner i % av
-        // planen, bollens läge och passningsalternativ (pilar). Liggande plan,
-        // vi spelar mot höger. Gult lag: roller. Rött lag: nr 1-7.
+        // Uppspelet i 2-3-1. Spelarpositioner i % av planen, bollens läge och
+        // passningsalternativ (pilar). Vi spelar uppåt. Gult lag: GK, Y1 = vänster MB,
+        // Y2 = HY, Y3 = VY, Y4 = höger MB, Y5 = IM, Y6 = FW.
+        // Rött lag har fasta roller i varje steg: [målvakt, vänster back, höger back,
+        // vänster mitt, central mitt, höger mitt, forward] (sett i bild). De skiftar
+        // mot bollsidan, backarna faller när bollen går framåt och spelare som
+        // blivit förbispelade jagar tillbaka.
         const PY = 1.4; // svg-y = y% * PY (staende plan, viewBox 100x140)
 
-        const FILM_STEPS = [
+        // Scenario 1: yttrarna är fria – vi spelar ut på kanten
+        const FILM_KANT = [
             {
-                title: 'Steg 1 \u2013 Målvakten startar uppspelet',
-                text: 'Vi har bollen och bygger upp anfallet i vår anfallsformation. HY och VY har gått ut breda på var sin kant och gör sig spelbara. Målvakten startar uppspelet.',
+                title: 'Steg 1 – Målvakten startar uppspelet',
+                text: 'Vi har bollen. Mittbackarna går isär till var sin sida av straffområdet, IM står centralt framför dem och yttrarna håller bredd högre upp. Målvakten startar uppspelet.',
                 ball: 'GK',
-                ballAt: [63, 90],
-                yellow: { GK: [59, 92.5], Y1: [43, 83.2], Y2: [89, 84.2], Y3: [11, 83.7], Y4: [50, 69], Y5: [59, 57], Y6: [44, 47] },
-                red: [[50, 12], [21, 44.2], [46, 42.5], [76, 43.5], [32.5, 74.5], [62, 75.4], [45, 62]],
+                ballAt: [53, 90.5],
+                yellow: { GK: [50, 93], Y1: [24, 82], Y2: [91, 64], Y3: [9, 64], Y4: [76, 82], Y5: [50, 70], Y6: [60, 40] },
+                red: [[50, 10], [38, 30], [62, 32], [32, 52], [50, 50], [68, 52], [50, 60]],
                 trail: null,
                 arrows: [
-                    { to: 'Y2', text: 'MV spelar ut bollen till HY ute på högerkanten.' },
-                    { to: 'Y3', text: 'MV kan också spela ut till VY på vänsterkanten.' }
+                    { to: 'Y4', text: 'Kort pass till höger mittback som gått isär.' },
+                    { to: 'Y1', text: 'Eller till vänster mittback på andra sidan.' },
+                    { to: 'Y5', text: 'Är IM fri kan bollen gå direkt in centralt.' }
                 ]
             },
             {
-                title: 'Steg 2 \u2013 HY har bollen på kanten',
-                text: 'HY har fått bollen ute på kanten (prickade linjen visar passningen från MV). Härifrån finns tre passningsalternativ framåt.',
+                title: 'Steg 2 – Läs av: är yttrarna fria?',
+                text: 'Höger mittback har bollen. Titta upp! Här står motståndarna samlat i mitten och deras forward skymmer passet in till IM – men yttrarna är fria. Då spelar vi ut på kanten.',
+                choice: true,
+                ball: 'Y4',
+                ballAt: [82, 76.5],
+                yellow: { GK: [60, 90], Y1: [40, 82], Y2: [91, 60], Y3: [12, 56], Y4: [78, 80], Y5: [62, 66], Y6: [62, 40] },
+                red: [[52, 10], [44, 30], [64, 31], [40, 52], [56, 50], [70, 54], [70, 73]],
+                trail: [[60, 90], [78, 80]],
+                arrows: [
+                    { to: 'Y2', text: 'Ut till HY på kanten – yttern är fri.' },
+                    { to: 'GK', text: 'Säkert tillbaka till MV om vi blir pressade.' }
+                ]
+            },
+            {
+                title: 'Steg 3 – HY har bollen på kanten',
+                text: 'HY har bollen ute på kanten. Höger mittback har följt med ut och står snett bakom som tillbakaspel. Den andra mittbacken glider in mot mitten.',
                 ball: 'Y2',
-                ballAt: [90, 71],
-                yellow: { GK: [69, 92.2], Y1: [52, 82.8], Y2: [91, 72.9], Y3: [19, 57.6], Y4: [67.5, 66.5], Y5: [67, 53], Y6: [78, 39.7] },
-                red: [[51, 11.1], [41, 36.8], [59, 39.6], [86, 52.4], [34, 73.6], [70, 78.6], [54.5, 62.2]],
-                trail: [[69, 92.2], [91, 72.9]],
+                ballAt: [87, 53.5],
+                yellow: { GK: [62, 86], Y1: [52, 70], Y2: [90, 57], Y3: [14, 50], Y4: [80, 67], Y5: [64, 56], Y6: [76, 30] },
+                red: [[54, 10], [48, 30], [70, 25], [40, 50], [58, 46], [78, 50], [62, 68]],
+                trail: null,
                 arrows: [
-                    { to: 'Y4', text: 'Kort passning inåt banan till DM.' },
-                    { to: 'Y5', text: 'Passning centralt till IM.' },
-                    { to: [87, 20], text: 'Lång boll i ytan framåt längs kanten.' }
+                    { to: 'Y5', text: 'Passning inåt till IM centralt.' },
+                    { to: 'Y6', text: 'Boll i djupled till FW.' },
+                    { to: [88, 22], text: 'Lång boll i ytan framåt längs kanten.' },
+                    { to: 'Y4', text: 'Stängt framåt? Tillbaka till MB som står nära.' }
                 ]
             },
             {
-                title: 'Steg 3 \u2013 IM har bollen centralt',
-                text: 'IM har bollen i mitten av planen med ansiktet mot mål. Härifrån finns flera vägar framåt.',
+                title: 'Steg 4 – IM har bollen centralt',
+                text: 'IM har bollen i mitten av planen med ansiktet mot mål. Mittbackarna står kvar bakom som säkerhet. Härifrån finns flera vägar framåt.',
                 ball: 'Y5',
-                ballAt: [67, 51],
-                yellow: { GK: [53, 82.5], Y1: [50, 71.5], Y2: [90, 57.8], Y3: [21, 48.8], Y4: [46.6, 60.7], Y5: [66, 53], Y6: [77, 40.6] },
-                red: [[50, 12], [50, 42.5], [70, 37.2], [86, 48], [35, 61.5], [68, 63.6], [57, 55.2]],
+                ballAt: [61, 46],
+                yellow: { GK: [55, 78], Y1: [36, 58], Y2: [88, 44], Y3: [16, 44], Y4: [64, 58], Y5: [58, 49], Y6: [64, 30] },
+                red: [[52, 10], [44, 28], [68, 24], [36, 38], [54, 40], [76, 50], [56, 62]],
                 trail: null,
                 arrows: [
-                    { to: 'Y3', text: 'Byt kant \u2013 pass till VY ute på vänsterkanten.' },
+                    { to: 'Y3', text: 'Byt kant – pass till VY ute på vänsterkanten.' },
                     { to: 'Y6', text: 'Boll i djupled till FW.' },
                     { to: 'Y2', text: 'Tillbaka till HY om vi behöver vända spelet.' }
                 ]
             },
             {
-                title: 'Steg 4 \u2013 VY har bollen högt på kanten',
-                text: 'VY har bollen högt på vänsterkanten. FW gör en löpning i djupet mellan motståndarnas två backar \u2013 passet spelas i ytan framför FW.',
+                title: 'Steg 5 – VY har bollen högt på kanten',
+                text: 'VY har bollen högt på vänsterkanten. FW gör en löpning i djupet mellan motståndarnas två backar – passet spelas i ytan framför FW.',
                 ball: 'Y3',
                 ballAt: [17, 35],
-                yellow: { GK: [57, 81.5], Y1: [37, 54], Y2: [75, 33.9], Y3: [17, 38.5], Y4: [33, 48.6], Y5: [39, 39.6], Y6: [39, 30] },
-                red: [[50, 11.1], [28, 35.6], [48, 33.7], [67, 41.5], [24, 47.5], [51, 48.8], [45, 42.9]],
+                yellow: { GK: [52, 70], Y1: [12, 54], Y2: [80, 32], Y3: [17, 38.5], Y4: [48, 56], Y5: [38, 52], Y6: [40, 30] },
+                red: [[46, 10], [30, 20], [54, 24], [20, 28], [46, 42], [64, 40], [38, 62]],
                 trail: null,
                 arrows: [
-                    { to: 'Y5', text: 'Säkert tillbaka till IM för att behålla bollen.' },
-                    { to: [42, 22], text: 'Pass i djupet till FW \u2013 bollen spelas i ytan framför FW att springa på.' }
+                    { to: [42, 22], text: 'Pass i djupet till FW – bollen spelas i ytan framför FW att springa på.' },
+                    { to: 'Y5', text: 'Säkert inåt till IM för att behålla bollen.' },
+                    { to: 'Y1', text: 'Tillbaka till MB som följt med nära kanten.' }
                 ]
             },
             {
-                title: 'Steg 5 \u2013 FW avslutar',
-                text: 'FW har tagit emot bollen vid straffområdet och är fri mot mål. Hela uppspelet \u2013 från målvakt till avslut \u2013 är klart!',
+                title: 'Steg 6 – FW avslutar',
+                text: 'FW har tagit emot bollen vid straffområdet och är fri mot mål. Hela uppspelet – från målvakt till avslut – är klart!',
                 ball: 'Y6',
                 ballAt: [43, 22],
-                yellow: { GK: [50, 76], Y1: [47, 51.2], Y2: [72, 22.9], Y3: [18, 27.7], Y4: [33, 39.7], Y5: [48, 37.2], Y6: [43, 24.8] },
-                red: [[49, 12], [29, 25.3], [48, 26.7], [59, 22.7], [22, 36.5], [48, 46.6], [38.6, 30.1]],
+                yellow: { GK: [52, 64], Y1: [36, 42], Y2: [74, 24], Y3: [18, 28], Y4: [60, 42], Y5: [47, 36], Y6: [43, 24.8] },
+                red: [[46, 12], [36, 24], [52, 22], [24, 34], [52, 44], [64, 34], [40, 52]],
                 trail: null,
                 arrows: [
-                    { to: [48, 2], text: 'Skott \u2013 avslut mot mål. Mål!' }
+                    { to: [48, 2], text: 'Skott – avslut mot mål. Mål!' }
                 ]
             }
         ];
 
-        const LAST_STEP = FILM_STEPS.length - 1;
+
+        // Scenario 2: motståndarna stänger yttrarna – vi spelar in centralt till IM eller FW som möter
+        const FILM_MITT = [
+            {
+                title: 'Steg 1 – Målvakten startar uppspelet',
+                text: 'Motståndarna står med två spelare högt på våra mittbackar och markerar yttrarna. Då blir det ett stort hål i mitten – IM är fri!',
+                ball: 'GK',
+                ballAt: [53, 90.5],
+                yellow: { GK: [50, 93], Y1: [24, 82], Y2: [91, 64], Y3: [9, 64], Y4: [76, 82], Y5: [50, 66], Y6: [56, 44] },
+                red: [[50, 10], [42, 30], [60, 32], [13, 59], [32, 76], [87, 59], [68, 76]],
+                trail: null,
+                arrows: [
+                    { to: 'Y5', text: 'Direkt in till IM – mitten är tom.' },
+                    { to: 'Y4', text: 'Kort till höger mittback om IM är skymd.' },
+                    { to: 'Y1', text: 'Eller till vänster mittback.' }
+                ]
+            },
+            {
+                title: 'Steg 2 – Läs av: är yttrarna fria?',
+                text: 'Höger mittback har bollen. Titta upp! Deras två höga spelare pressar mittbackarna och de andra står tätt på VY och HY – kanten är stängd. Bakom pressen är mitten öppen.',
+                choice: true,
+                ball: 'Y4',
+                ballAt: [82, 76.5],
+                yellow: { GK: [60, 90], Y1: [40, 82], Y2: [91, 60], Y3: [12, 56], Y4: [78, 80], Y5: [60, 66], Y6: [54, 46] },
+                red: [[52, 10], [44, 30], [58, 36], [21, 52], [42, 76], [86, 55], [85, 70]],
+                trail: [[60, 90], [78, 80]],
+                arrows: [
+                    { to: 'Y5', text: 'Spela förbi pressen in till IM – IM har hela mitten.' },
+                    { to: 'Y6', text: 'FW kommer ner och möter – spela direkt in i fötterna.' },
+                    { to: 'GK', text: 'Säkert tillbaka till MV om vi blir pressade.' }
+                ]
+            },
+            {
+                title: 'Steg 3 – IM har bollen i mitten',
+                text: 'IM har tagit emot centralt och vänt upp. Deras två höga spelare är bortspelade. Deras yttermittfältare drar sig in mot mitten, mest på bortre sidan, och backen bakom backar lite – IM har tid och yta.',
+                ball: 'Y5',
+                ballAt: [63, 59.5],
+                yellow: { GK: [58, 84], Y1: [36, 70], Y2: [90, 52], Y3: [12, 50], Y4: [66, 68], Y5: [60, 62], Y6: [52, 44] },
+                red: [[52, 10], [44, 31], [56, 29], [26, 46], [48, 68], [82, 47], [74, 66]],
+                trail: null,
+                arrows: [
+                    { to: 'Y6', text: 'In till FW som möter – spela i fötterna.' },
+                    { to: [20, 32], text: 'Kliver deras ytter in? Boll bakom till VY som springer i djupet.' },
+                    { to: 'Y2', text: 'Ut till HY om kanten har öppnat sig.' }
+                ]
+            },
+            {
+                title: 'Steg 4 – FW möter och lägger av',
+                text: 'FW har kommit ner och fått bollen med ryggen mot mål. Deras back följde med – nu är ytan bakom öppen. Yttrarna startar sina löpningar.',
+                ball: 'Y6',
+                ballAt: [56, 39],
+                yellow: { GK: [54, 74], Y1: [36, 54], Y2: [86, 36], Y3: [14, 36], Y4: [58, 60], Y5: [66, 54], Y6: [52, 42] },
+                red: [[50, 10], [44, 26], [55, 35.5], [26, 42], [48, 56], [78, 42], [70, 62]],
+                trail: null,
+                arrows: [
+                    { to: 'Y5', text: 'Väggspel tillbaka till IM som är vänd mot mål.' },
+                    { to: [22, 20], text: 'Lägg bollen i ytan bakom backen – VY springer på den.' },
+                    { to: [82, 22], text: 'Eller i ytan för HY på andra sidan.' }
+                ]
+            },
+            {
+                title: 'Steg 5 – VY i djupet',
+                text: 'VY har kommit runt på kanten med bollen i fart. Deras försvar drar sig mot bollen – då är det fritt för HY som kommer på bortre sidan.',
+                ball: 'Y3',
+                ballAt: [26, 17.5],
+                yellow: { GK: [52, 66], Y1: [30, 42], Y2: [72, 19], Y3: [22, 21], Y4: [58, 44], Y5: [48, 40], Y6: [42, 26] },
+                red: [[44, 10], [28, 26], [52, 26], [22, 32], [52, 50], [78, 30], [64, 54]],
+                trail: [[52, 42], [22, 21]],
+                arrows: [
+                    { to: 'Y2', text: 'Pass/inlägg till HY som kommer på bortre sidan.' },
+                    { to: 'Y6', text: 'Eller in framför mål till FW.' }
+                ]
+            },
+            {
+                title: 'Steg 6 – HY avslutar',
+                text: 'HY har kommit fri på bortre sidan. Vi kom igenom mitten när de stängde kanterna och avslutade via andra yttern – mål!',
+                ball: 'Y2',
+                ballAt: [64, 13.5],
+                yellow: { GK: [52, 62], Y1: [32, 40], Y2: [66, 16], Y3: [24, 20], Y4: [58, 40], Y5: [48, 32], Y6: [44, 23] },
+                red: [[56, 8], [36, 22], [58, 22], [26, 30], [52, 44], [78, 26], [62, 50]],
+                trail: [[22, 21], [66, 16]],
+                arrows: [
+                    { to: [44, 2], text: 'Skott i bortre hörnet. Mål!' }
+                ]
+            }
+        ];
+
+        const FILM_SCENARIOS = { kant: FILM_KANT, mitt: FILM_MITT };
+        let filmScenario = 'kant';
+        let FILM_STEPS = FILM_KANT;
+        let LAST_STEP = FILM_STEPS.length - 1;
         const MOVE_MS = 1300;   // tid for spelare/boll att forflytta sig
         const HOLD_MS = 3000;  // tid som passningsalternativen visas
 
@@ -1452,6 +2168,7 @@
 
         function buildFilmDots() {
             const c = document.getElementById('u-dots');
+            c.innerHTML = '';
             FILM_STEPS.forEach((_, i) => {
                 const d = document.createElement('div');
                 d.className = 'dot';
@@ -1491,6 +2208,11 @@
             // Text och alternativlista
             document.getElementById('u-title').textContent = s.title;
             document.getElementById('u-text').textContent = s.text;
+            const choice = document.getElementById('u-choice');
+            choice.hidden = !s.choice;
+            choice.querySelectorAll('[data-scen]').forEach(b => {
+                b.setAttribute('aria-pressed', String(b.dataset.scen === filmScenario));
+            });
             const ol = document.getElementById('u-options');
             ol.innerHTML = '';
             s.arrows.forEach((a, i) => {
@@ -1652,12 +2374,25 @@
         function filmToggle() { filmPlaying ? filmPause() : filmPlay(); }
         function filmNext() { filmPause(); if (filmStep < LAST_STEP) filmRender(filmStep + 1); }
         function filmPrev() { filmPause(); if (filmStep > 0) filmRender(filmStep - 1); }
+        // Byt scenario. Står vi efter valsteget hoppar vi tillbaka till det.
+        function setFilmScenario(name) {
+            filmScenario = name;
+            FILM_STEPS = FILM_SCENARIOS[name];
+            LAST_STEP = FILM_STEPS.length - 1;
+            document.querySelectorAll('[data-scen]').forEach(b => {
+                b.setAttribute('aria-pressed', String(b.dataset.scen === name));
+            });
+            buildFilmDots();
+            filmRender(Math.min(filmStep, 1));
+        }
+
         function filmRestart() { filmPause(); filmRender(0); }
 
         document.addEventListener('DOMContentLoaded', () => {
             buildFilmDots();
             filmRender(0);
         });
+
     </script>
 </body>
 </html>
